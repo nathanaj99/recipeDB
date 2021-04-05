@@ -11,4 +11,7 @@ if len(sys.argv) < 2:
     sys.stderr.write('Usage: make-data.py FILENAME')
     sys.exit(1)
 
-print(json.dumps(utils.import_data(open(sys.argv[1])), indent=4))
+w = open(sys.argv[2], 'w')
+
+w.write(json.dumps(utils.import_data(open(sys.argv[1])), indent=4))
+w.close()
