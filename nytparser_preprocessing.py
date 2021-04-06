@@ -2,7 +2,7 @@ import json
 import csv
 import textdistance
 
-input_file = 'epicurious'
+input_file = 'nyt_dinner'
 
 # file = json.loads(open('data/nyt_parser/epicurious_results.json', 'r').read())
 # print(len(file))
@@ -119,8 +119,19 @@ def check_size():
     print(len(data_raw)) # 30551
     print(len(data_json)) # 30519
 
-check_size()
-# preprocessinf text files
-# - make everything lowercase
-# - combine the unicode fractions somehow
-# - get rid of all punctuation .(),
+
+def convert_json():
+    nyt = json.loads(open('data/nyt_parser/' + input_file + '_results.json', 'r').read())
+    raw = open('data/' + input_file + '_raw.txt', 'r').readlines()
+    new_dict = {}
+    for i in range(len(raw)):
+        new_dict[raw[i].strip()] = nyt[i]
+
+    w = open('data/nyt_parser/' + input_file + '_results2.json', 'w')
+    json.dump(new_dict, w, ensure_ascii=False, indent=4)
+
+    w.close()
+
+    # nrm = json.loads(open('data/nrm/' + input_file + '_results.json', 'r').read())
+
+convert_json()
