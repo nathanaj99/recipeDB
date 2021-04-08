@@ -2,7 +2,7 @@ import json
 import csv
 import textdistance
 
-input_file = 'nyt_dinner'
+input_file = 'nyt'
 
 # file = json.loads(open('data/nyt_parser/epicurious_results.json', 'r').read())
 # print(len(file))
@@ -56,7 +56,6 @@ def raw_txt():
             j = j.strip()
             if len(j) > 0:
                 w.write(j + '\n')
-
 
 # raw_txt()
 
@@ -119,6 +118,8 @@ def check_size():
     print(len(data_raw)) # 30551
     print(len(data_json)) # 30519
 
+# check_size()
+
 
 def convert_json():
     nyt = json.loads(open('data/nyt_parser/' + input_file + '_results.json', 'r').read())
@@ -127,11 +128,80 @@ def convert_json():
     for i in range(len(raw)):
         new_dict[raw[i].strip()] = nyt[i]
 
-    w = open('data/nyt_parser/' + input_file + '_results2.json', 'w')
+    w = open('data/nyt_parser/' + input_file + '_results3.json', 'w')
     json.dump(new_dict, w, ensure_ascii=False, indent=4)
 
     w.close()
 
     # nrm = json.loads(open('data/nrm/' + input_file + '_results.json', 'r').read())
 
-convert_json()
+# convert_json()
+
+
+def get_unique_ingredients():
+    nyt = json.loads(open('data/nyt_parser/nyt_results2.json', 'r').read())
+    nyt_set = set([nyt[i]['name'] for i in nyt if 'name' in nyt[i]])
+    print(len(nyt_set))
+    # print(nyt2_list)
+
+    nyt_dinner = json.loads(open('data/nyt_parser/nyt_dinner_results2.json', 'r').read())
+    nyt_dinner_set = set([nyt_dinner[i]['name'] for i in nyt_dinner if 'name' in nyt_dinner[i]])
+    print(len(nyt_dinner_set))
+
+    epicurious = json.loads(open('data/nyt_parser/epicurious_results2.json', 'r').read())
+    epicurious_set = set([epicurious[i]['name'] for i in epicurious if 'name' in epicurious[i]])
+    print(len(epicurious_set))
+
+    total_set = nyt_set | nyt_dinner_set | epicurious_set
+    print(len(total_set))
+
+    named_ingredients = open('data/ingredients/named_ingredients1.txt', 'w')
+    named_ingredients2 = open('data/ingredients/named_ingredients2.txt', 'w')
+    counter = 0
+    for i in total_set:
+        if counter < 10000:
+            named_ingredients.write(i + '\n')
+        else:
+            named_ingredients2.write(i + '\n')
+        counter += 1
+
+    named_ingredients2.close()
+    named_ingredients.close()
+
+
+    # nyt = json.loads(open('data/nyt_parser/nyt_results.json', 'r').read())
+    # print(len(nyt))
+    # nyt_list = set([i['input'] for i in nyt])
+    # print(len(nyt_list))
+    #
+    # print(nyt2_list - nyt_list)
+
+
+get_unique_ingredients()
+
+def no_name():
+    nyt = json.loads(open('data/nyt_parser/nyt_results2.json', 'r').read())
+    nyt_set_noname = set([i for i in nyt if 'name' not in nyt[i]])
+    # print(nyt_set_noname)
+    print(len(nyt_set_noname))
+
+    nyt = json.loads(open('data/nyt_parser/nyt_dinner_results2.json', 'r').read())
+    nyt_set_noname2 = set([i for i in nyt if 'name' not in nyt[i]])
+    # print(nyt_set_noname)
+    print(len(nyt_set_noname))
+
+    nyt = json.loads(open('data/nyt_parser/epicurious_results2.json', 'r').read())
+    nyt_set_noname3 = set([i for i in nyt if 'name' not in nyt[i]])
+    # print(nyt_set_noname)
+    print(len(nyt_set_noname))
+
+    all_set = nyt_set_noname | nyt_set_noname2 | nyt_set_noname3
+    print(len(all_set))
+
+    unnamed_ingredients = open('data/ingredients/unnamed_ingredients.txt', 'w')
+    for i in all_set:
+        unnamed_ingredients.write(i + '\n')
+
+    unnamed_ingredients.close()
+
+no_name()
