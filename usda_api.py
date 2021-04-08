@@ -33,9 +33,9 @@ for i in ingredients:
 
     if len(resp.json()['foods']) > 0:
         # if the query gets some results
-        nutrition_dic[i] = resp.json()['foods'][0]
+        nutrition_dic[i.strip()] = resp.json()['foods'][0]
     else:
-        nutrition_dic[i] = {}
+        nutrition_dic[i.strip()] = {}
 
     time.sleep(1.5)
 
