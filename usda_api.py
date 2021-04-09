@@ -20,9 +20,11 @@ class APIError(Exception):
     def __str__(self):
         return "APIError: status={}".format(self.status)
 
-
+counter = 0
 for i in ingredients:
     print(i)
+    if counter % 3600 == 0:
+        print(counter)
     keyword = " ".join(re.findall("[a-zA-Z0-9]+", i))
     keyword = keyword.replace(' ', '%20')
     url = 'https://api.nal.usda.gov/fdc/v1/foods/search?api_key={}&query={}'.format(api_key, keyword)
@@ -37,7 +39,8 @@ for i in ingredients:
     else:
         nutrition_dic[i.strip()] = {}
 
-    time.sleep(1.5)
+    time.sleep(2)
+    counter += 1
 
 json.dump(nutrition_dic, output, ensure_ascii=False, indent=4)
 

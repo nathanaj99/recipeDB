@@ -1,6 +1,5 @@
 import json
 import csv
-import textdistance
 
 input_file = 'nyt'
 
@@ -177,7 +176,7 @@ def get_unique_ingredients():
     # print(nyt2_list - nyt_list)
 
 
-get_unique_ingredients()
+# get_unique_ingredients()
 
 def no_name():
     nyt = json.loads(open('data/nyt_parser/nyt_results2.json', 'r').read())
@@ -204,4 +203,21 @@ def no_name():
 
     unnamed_ingredients.close()
 
-no_name()
+# no_name()
+
+def split_json(input):
+    d = json.loads(open('data/ingredients/' + input + '_nutrition.json', 'r').read())
+    w1 = open('data/ingredients/' + input + '_1_nutrition.json', 'w')
+    w2 = open('data/ingredients/' + input + '_2_nutrition.json', 'w')
+    print(len(d))
+    d1 = dict(list(d.items())[len(d) // 2:])
+    print(len(d1))
+    d2 = dict(list(d.items())[:len(d) // 2])
+    print(len(d2))
+
+    json.dump(d1, w1, ensure_ascii=False, indent=4)
+    json.dump(d2, w2, ensure_ascii=False, indent=4)
+    w1.close()
+    w2.close()
+
+split_json('named_ingredients2')
