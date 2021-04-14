@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 rc = recipeconverter.RecipeConverter()
 
-input_file = 'epicurious'
+input_file = 'nyt_dinner'
 
 def convert_to_grams():
     """
@@ -194,10 +194,10 @@ def calculate_recipe_nutrition():
             elif s >= 13 and s < 73:
                 return round((int(s / 2) + 64) / 10.0, 1)
 
-    jl = open('data/processed_jl/processed_' + input_file + '_dessert.jl', "r").read()
+    jl = open('data/raw_jl/' + input_file + '.jl', "r").read()
     nyt_results = json.loads(open('data/nyt_parser/' + input_file + '_results3.json', 'r').read())
     # w = open('data/health_results.txt', 'a+')
-    w = open('data/processed_jl/' + input_file + '_dessert.jl', 'w')
+    w = open('data/processed_jl/' + input_file + '.jl', 'w')
 
     # FULL_NUTRITION IS NOT IN GIT. THE FILE IS TOO LARGE. BUT IT'S BASICALLY COMBINING ALL THE INGREDIENT NUTRITIONAL INFO
     dic = json.loads(open('data/ingredients/full_nutrition.json').read())
@@ -284,7 +284,7 @@ def calculate_recipe_nutrition():
             # put health rating as NA when saving later
             recipe['health_score'] = None
 
-        json.dump(recipe, w, ensure_ascii=False, indent=4)
+        json.dump(recipe, w, ensure_ascii=False)
         w.write('\n')
     w.close()
 
