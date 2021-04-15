@@ -1,0 +1,1886 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:AggregateRating a rdfs:Class ;
+    schema:bestRating schema:Number ;
+    schema:ratingValue schema:Number .
+
+schema:NutritionInformation a rdfs:Class ;
+    schema:calciumContent schema:Mass ;
+    schema:calciumContentDV xsd:float ;
+    schema:calories schema:Energy ;
+    schema:caloriesDV xsd:float ;
+    schema:carbohydrateContent schema:Mass ;
+    schema:carbohydrateContentDV xsd:float ;
+    schema:cholesterolContent schema:Mass ;
+    schema:cholesterolContentDV xsd:float ;
+    schema:fatContent schema:Mass ;
+    schema:fatContentDV xsd:float ;
+    schema:fiberContent schema:Mass ;
+    schema:fiberContentDV xsd:float ;
+    schema:folicAcidContent schema:Mass ;
+    schema:folicAcidContentDV xsd:float ;
+    schema:ironContent schema:Mass ;
+    schema:ironContentDV xsd:float ;
+    schema:magnesiumContent schema:Mass ;
+    schema:magnesiumContentDV xsd:float ;
+    schema:monounsaturatedFatContent schema:Mass ;
+    schema:monounsaturatedFatContentDV xsd:float ;
+    schema:niacinB3Content schema:Mass ;
+    schema:niacinB3ContentDV xsd:float ;
+    schema:phosphorusContent schema:Mass ;
+    schema:phosphorusContentDV xsd:float ;
+    schema:polyunsaturatedFatContent schema:Mass ;
+    schema:polyunsaturatedFatContentDV xsd:float ;
+    schema:potassiumContent schema:Mass ;
+    schema:potassiumContentDV xsd:float ;
+    schema:proteinContent schema:Mass ;
+    schema:proteinContentDV xsd:float ;
+    schema:riboflavinB2Content schema:Mass ;
+    schema:riboflavinB2ContentDV xsd:float ;
+    schema:saturatedFatContent schema:Mass ;
+    schema:saturatedFatContentDV xsd:float ;
+    schema:sodiumContent schema:Mass ;
+    schema:sodiumContentDV xsd:float ;
+    schema:sugarContent schema:Mass ;
+    schema:sugarContentDV xsd:float ;
+    schema:thiaminB1Content schema:Mass ;
+    schema:thiaminB1ContentDV xsd:float ;
+    schema:transFatContent schema:Mass ;
+    schema:transFatContentDV xsd:float ;
+    schema:vitaminAContent schema:Mass ;
+    schema:vitaminAContentDV xsd:float ;
+    schema:vitaminB12Content schema:Mass ;
+    schema:vitaminB12ContentDV xsd:float ;
+    schema:vitaminB6Content schema:Mass ;
+    schema:vitaminB6ContentDV xsd:float ;
+    schema:vitaminCContent schema:Mass ;
+    schema:vitaminCContentDV xsd:float ;
+    schema:vitaminDContent schema:Mass ;
+    schema:vitaminDContentDV xsd:float ;
+    schema:vitaminEContent schema:Mass ;
+    schema:vitaminEContentDV xsd:float ;
+    schema:vitaminKContent schema:Mass ;
+    schema:vitaminKContentDV xsd:float ;
+    schema:zincContent schema:Mass ;
+    schema:zincContentDV xsd:float .
+
+schema:Recipe a rdfs:Class ;
+    rdfs:label schema:Text ;
+    schema:aggregateRating schema:AggregateRating ;
+    schema:author schema:Person ;
+    schema:healthScore xsd:Float ;
+    schema:nutrition schema:NutritionInformation ;
+    schema:recipeIngredient schema:Text ;
+    schema:recipeInstructions schema:ItemList ;
+    schema:tags schema:ItemList .
+
+<https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche> a schema:Recipe ;
+    rdfs:label "Caramelized Figs With Honey, Thyme and Crème Fraîche" ;
+    schema:aggregateRating <https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/rating> ;
+    schema:author <https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/author0> ;
+    schema:healthScore "3.8"^^xsd:float ;
+    schema:nutrition <https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/nutrition> ;
+    schema:recipeIngredient "1 ½ tablespoons unsalted butter",
+        "3 tablespoons mild honey",
+        "4 fresh thyme sprigs, plus extra leaves for garnish",
+        "4 tablespoons crème fraîche",
+        "6 plump figs, trimmed and halved" ;
+    schema:recipeInstructions <https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/steps> ;
+    schema:tags <https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/tags> .
+
+<https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme> a schema:Recipe ;
+    rdfs:label "Lemon Meringue Pots de Crème" ;
+    schema:aggregateRating <https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/rating> ;
+    schema:author <https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/author0> ;
+    schema:healthScore "3.9"^^xsd:float ;
+    schema:nutrition <https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/nutrition> ;
+    schema:recipeIngredient " Pinch of salt",
+        "1 tablespoon finely chopped pistachios",
+        "2 cups half-and-half",
+        "2 tablespoons unsalted butter, softened",
+        "2 teaspoons lemon zest",
+        "3 tablespoons cornstarch",
+        "4 large eggs, separated",
+        "½ cup lemon juice",
+        "¾ cup sugar, plus 4 tablespoons" ;
+    schema:recipeInstructions <https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/steps> ;
+    schema:tags <https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/tags> .
+
+<https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce> a schema:Recipe ;
+    rdfs:label "Soufflé Omelet With Apricot Sauce" ;
+    schema:aggregateRating <https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/rating> ;
+    schema:author <https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/author0> ;
+    schema:healthScore "4.3"^^xsd:float ;
+    schema:nutrition <https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/nutrition> ;
+    schema:recipeIngredient " Powdered sugar for dusting (optional)",
+        " Small pinch freshly grated nutmeg",
+        " Small pinch of cream of tartar",
+        " Small pinch salt",
+        "1 cup fresh orange juice",
+        "1 tablespoon Cointreau",
+        "1 tablespoon unsalted butter",
+        "1 vanilla bean, split and scraped, or 1 teaspoon vanilla extract",
+        "2 tablespoons sugar",
+        "3 eggs, separated",
+        "3 tablespoons lightly toasted slivered almonds",
+        "6 ripe apricots, pitted and quartered",
+        "¼ cup sugar" ;
+    schema:recipeInstructions <https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/steps> ;
+    schema:tags <https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/tags> .
+
+<https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart> a schema:Recipe ;
+    rdfs:label "Simplest Strawberry Tart" ;
+    schema:aggregateRating <https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/rating> ;
+    schema:author <https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/author0>,
+        <https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/author1> ;
+    schema:healthScore "5.1"^^xsd:float ;
+    schema:nutrition <https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/nutrition> ;
+    schema:recipeIngredient "1 cup/225 grams mascarpone, at room temperature",
+        "1 large egg, lightly beaten, for egg wash",
+        "1 pound/450 grams small, sweet strawberries",
+        "1 ½ teaspoons apple cider vinegar",
+        "3 tablespoons granulated sugar",
+        "3 tablespoons high-quality strawberry jam",
+        "9 tablespoons/127 grams very cold unsalted butter, cut into 1/2-inch cubes",
+        "½ teaspoon salt",
+        "⅔ cup/85 grams all-purpose flour",
+        "⅔ cup/85 grams rye flour" ;
+    schema:recipeInstructions <https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/steps> ;
+    schema:tags <https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/tags> .
+
+<https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry> a schema:Recipe ;
+    rdfs:label "Any Vegetable Stir-Fry" ;
+    schema:aggregateRating <https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/rating> ;
+    schema:author <https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/author0> ;
+    schema:healthScore "5.7"^^xsd:float ;
+    schema:nutrition <https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/nutrition> ;
+    schema:recipeIngredient " Kosher salt",
+        " Sriracha or other hot sauce, for serving",
+        " Tamari or soy sauce, for serving",
+        "1 heaping cup whole, skin-on almonds, pistachios or cashews",
+        "1 tablespoon rice wine vinegar or white wine vinegar",
+        "1 tablespoons sesame seeds (optional)",
+        "1 to 2 cups other crunchy vegetables, such as snap peas, snow peas, green beans, carrots or radishes, trimmed and sliced or chopped if large",
+        "1 to 2 teaspoons toasted sesame oil",
+        "2 tablespoons canola oil or other neutral oil",
+        "4 cups steamed white or brown long-grain, sushi or basmati rice, for serving",
+        "4 packed cups sturdy greens, such as spinach, kale, mustard greens, collards or chard, trimmed and roughly chopped",
+        "4 to 6 celery stalks, fennel stalks or bok choy, sliced on the bias",
+        "½ packed cup torn or roughly chopped mint, cilantro or basil (optional)" ;
+    schema:recipeInstructions <https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/steps> ;
+    schema:tags <https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/tags> .
+
+<https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream> a schema:Recipe ;
+    rdfs:label "Baked Rajma (Punjabi-Style Red Beans With Cream)" ;
+    schema:aggregateRating <https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/rating> ;
+    schema:author <https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/author0> ;
+    schema:healthScore "4.6"^^xsd:float ;
+    schema:nutrition <https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/nutrition> ;
+    schema:recipeIngredient "1 (1-inch) piece fresh ginger, peeled",
+        "1 (28-ounce) can crushed, diced, chopped or whole tomatoes",
+        "1 fresh green chile",
+        "1 red onion",
+        "1 teaspoon granulated sugar",
+        "1 teaspoon kosher salt",
+        "1 teaspoon sea salt",
+        "2 (15-ounce) cans kidney beans, drained",
+        "2 tablespoons neutral oil",
+        "4 garlic cloves",
+        "¼ cup roughly chopped fresh cilantro leaves",
+        "¼ cup white wine vinegar",
+        "¼ teaspoon cumin seeds",
+        "¼ teaspoon garam masala",
+        "½ cup heavy cream or 1 cup diced mozzarella cheese",
+        "½ teaspoon red chile powder" ;
+    schema:recipeInstructions <https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/steps> ;
+    schema:tags <https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/tags> .
+
+<https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad> a schema:Recipe ;
+    rdfs:label "Quick-Pickled Vegetable Salad" ;
+    schema:aggregateRating <https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/rating> ;
+    schema:author <https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/author0> ;
+    schema:healthScore "5.9"^^xsd:float ;
+    schema:nutrition <https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/nutrition> ;
+    schema:recipeIngredient "1 small red onion, very thinly sliced from tip to tip",
+        "1 teaspoon fresh lemon zest and 2 tablespoons juice (from 1 lemon), or 2 tablespoons vinegar",
+        "2 large celery stalks, trimmed and thinly sliced on a sharp angle",
+        "2 medium carrots, peeled and very thinly sliced lengthwise using a mandoline or thinly sliced diagonally",
+        "2 tablespoons coriander seeds (optional)",
+        "2 teaspoons kosher salt",
+        "2 to 4 teaspoons coarse or Dijon mustard, to taste",
+        "3 small radishes, very thinly sliced (optional)",
+        "3 tablespoons extra-virgin olive oil",
+        "8 cups torn butter lettuce or romaine hearts (6 to 8 ounces)",
+        "¼ cup granulated sugar",
+        "½ cup apple cider vinegar, red wine vinegar or champagne vinegar",
+        "⅔ cup torn or chopped mixed fresh herbs (any combination of parsley, dill, basil, mint or chives) (see Tip)" ;
+    schema:recipeInstructions <https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/steps> ;
+    schema:tags <https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/tags> .
+
+<https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs> a schema:Recipe ;
+    rdfs:label "Lemony Orzo With Asparagus and Garlic Bread Crumbs" ;
+    schema:aggregateRating <https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/rating> ;
+    schema:author <https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/author0> ;
+    schema:healthScore "5.8"^^xsd:float ;
+    schema:nutrition <https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/nutrition> ;
+    schema:recipeIngredient " Kosher salt and black pepper",
+        "1 cup orzo",
+        "1 pound asparagus, trimmed and thinly sliced on a diagonal (about 1/4-inch thick)",
+        "1 small garlic clove, finely grated",
+        "1 teaspoon lemon zest plus 3 tablespoons lemon juice, plus more as needed (from about 1 large lemon)",
+        "5 tablespoons extra-virgin olive oil",
+        "¼ cup finely grated Parmesan, plus more for serving",
+        "½ cup fresh dill, mint or parsley leaves (or any combination), torn if large",
+        "½ cup panko or homemade bread crumbs" ;
+    schema:recipeInstructions <https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/steps> ;
+    schema:tags <https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/tags> .
+
+<https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi> a schema:Recipe ;
+    rdfs:label "Basic Hummus" ;
+    schema:aggregateRating <https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/rating> ;
+    schema:author <https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/author0> ;
+    schema:healthScore "6.0"^^xsd:float ;
+    schema:nutrition <https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/nutrition> ;
+    schema:recipeIngredient "1 cup plus 2 tbsp/270 g light tahini paste",
+        "1 cup/250 g dried chickpeas",
+        "1 tsp. baking soda",
+        "4 Tbsp. freshly squeezed lemon juice",
+        "4 cloves garlic, crushed",
+        "6 Tbsp./100 ml ice-cold water",
+        "6 cups/1.5 liters water",
+        "Salt" ;
+    schema:recipeInstructions <https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/steps> ;
+    schema:tags <https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/tags> .
+
+<https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods> a schema:Recipe ;
+    rdfs:label "Concubine's Chicken 贵妃鸡" ;
+    schema:aggregateRating <https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/rating> ;
+    schema:author <https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/author0> ;
+    schema:healthScore "5.3"^^xsd:float ;
+    schema:nutrition <https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/nutrition> ;
+    schema:recipeIngredient "1 (1-inch / 2.5 cm) piece fresh ginger, peeled and sliced",
+        "1 dried red chile pepper (I use Tianjin chiles), soaked for 1 minute in warm water",
+        "1 green onion, trimmed and cut into (2-inch / 5 cm) segments, plus 2 green onions trimmed and finely chopped",
+        "1 recipe Longevity Noodles",
+        "10 ounces (280 g) boneless chicken thighs",
+        "1⁄2 longhorn pepper (or another thin, fresh, moderately hot chile pepper), sliced",
+        "1⁄2 red bell pepper, cubed",
+        "1⁄2 red onion, chopped",
+        "1⁄2 tablespoon Sichuan peppercorns",
+        "1⁄2 teaspoon soy sauce",
+        "1⁄2 teaspoon white pepper powder, divided",
+        "1⁄2 yellow potato, peeled and cubed",
+        "1⁄4 teaspoon cornstarch",
+        "1⁄4 teaspoon plus 1 tablespoon Shaoxing cooking wine, divided",
+        "1⁄8 teaspoon sugar",
+        "2 large garlic cloves, peeled and sliced",
+        "2 star anise pods",
+        "2 tablespoons chopped celery",
+        "2 tablespoons vegetable oil",
+        "2 teaspoons Pixian bean sauce",
+        "2 teaspoons chopped Chinese chives",
+        "Homemade or store-bought chili oil",
+        "¼ cup XFF Noodle Sauce",
+        "½ cup (100 g) cabbage or bok choy, roughly chopped into 2-inch (5 cm) pieces" ;
+    schema:recipeInstructions <https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/steps> ;
+    schema:tags <https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/tags> .
+
+<https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles> a schema:Recipe ;
+    rdfs:label "Custard Creams" ;
+    schema:aggregateRating <https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/rating> ;
+    schema:author <https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/author0> ;
+    schema:healthScore "3.9"^^xsd:float ;
+    schema:nutrition <https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/nutrition> ;
+    schema:recipeIngredient "120g all-purpose flour",
+        "120g unsalted butter, at room  temperature",
+        "120g unsalted butter, cubed, at room temperature",
+        "35g powdered sugar",
+        "40g custard powder",
+        "90g powdered sugar",
+        "¼ teaspoon baking soda",
+        "½ teaspoon vanilla paste" ;
+    schema:recipeInstructions <https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/steps> ;
+    schema:tags <https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/tags> .
+
+<https://www.epicurious.com/recipes/food/views/fudgy-brownies> a schema:Recipe ;
+    rdfs:label "Fudgy Brownies" ;
+    schema:aggregateRating <https://www.epicurious.com/recipes/food/views/fudgy-brownies/rating> ;
+    schema:author <https://www.epicurious.com/recipes/food/views/fudgy-brownies/author0> ;
+    schema:healthScore "4.6"^^xsd:float ;
+    schema:nutrition <https://www.epicurious.com/recipes/food/views/fudgy-brownies/nutrition> ;
+    schema:recipeIngredient "1 1⁄4 cups / 250 grams granulated sugar",
+        "1 teaspoon / 5 grams pure vanilla extract",
+        "1⁄2 cup / 60 grams all-purpose flour",
+        "1⁄2 teaspoon / 3 grams fine sea salt",
+        "2 eggs / 100 grams large eggs",
+        "4 ounces / 113 grams unsweetened chocolate",
+        "8 tablespoons (1 stick) / 113 grams unsalted butter, cubed",
+        "Nonstick cooking spray" ;
+    schema:recipeInstructions <https://www.epicurious.com/recipes/food/views/fudgy-brownies/steps> ;
+    schema:tags <https://www.epicurious.com/recipes/food/views/fudgy-brownies/tags> .
+
+<https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam> a schema:Recipe ;
+    rdfs:label "Grated Shortbread Bars With Rose Jam" ;
+    schema:aggregateRating <https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/rating> ;
+    schema:author <https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/author0> ;
+    schema:healthScore "4.1"^^xsd:float ;
+    schema:nutrition <https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/nutrition> ;
+    schema:recipeIngredient "1¼ teaspoons baking powder",
+        "2¾ cups (330 grams) all-­purpose flour",
+        "3 large egg yolks",
+        "Grated zest of 1 Meyer lemon, or 1 teaspoon grated zest from a garden-­variety lemon",
+        "²⁄3 cup (132 grams) sugar",
+        "½ pound plus 6 tablespoons (312 grams) unsalted butter, at room temperature",
+        "½ teaspoon ground cardamom",
+        "½ teaspoon plus ⅛ teaspoon kosher salt",
+        "¾ cup (178 milliliters) rose petal jam, or raspberry jam, homemade or store-­bought, scented with 1 teaspoon rose water" ;
+    schema:recipeInstructions <https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/steps> ;
+    schema:tags <https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/tags> .
+
+<https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang> a schema:Recipe ;
+    rdfs:label "Pak Choi and Kale Dumpling" ;
+    schema:aggregateRating <https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/rating> ;
+    schema:author <https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/author0> ;
+    schema:healthScore "4.9"^^xsd:float ;
+    schema:nutrition <https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/nutrition> ;
+    schema:recipeIngredient "1 clove of garlic",
+        "1 spring onion (scallion)",
+        "1 tablespoon oyster sauce",
+        "100g (3 ½ oz) minced pork (swapsies: extra firm, fresh tofu)",
+        "100ml (3½ fl oz / ⅓ cup) chicken stock",
+        "170ml (6fl oz / ¾ cup) boiling water",
+        "2 medium or 1 large pak choi",
+        "250g (9oz / about 1¾ cups) medium-gluten wheat flour, or plain flour (all-purpose flour)",
+        "25g (1oz) tapioca flour",
+        "25g (1oz) vegetable oil",
+        "25–30 ready-made round dumpling pastries, or thinly rolled circles of Shui Gao dough (see below)",
+        "5 sprigs of fresh coriander (cilantro)",
+        "5–6 large kale leaves",
+        "A pinch of salt",
+        "½ a thumb-size piece of ginger",
+        "½ tablespoon light soy sauce",
+        "½ tablespoon pure sesame oil",
+        "½ teaspoon chili oil",
+        "½ teaspoon salt",
+        "½ teaspoon sugar" ;
+    schema:recipeInstructions <https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/steps> ;
+    schema:tags <https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/tags> .
+
+<https://www.epicurious.com/recipes/food/views/salted-miso-brownies> a schema:Recipe ;
+    rdfs:label "Salted Miso Brownies" ;
+    schema:aggregateRating <https://www.epicurious.com/recipes/food/views/salted-miso-brownies/rating> ;
+    schema:author <https://www.epicurious.com/recipes/food/views/salted-miso-brownies/author0> ;
+    schema:healthScore "4.4"^^xsd:float ;
+    schema:nutrition <https://www.epicurious.com/recipes/food/views/salted-miso-brownies/nutrition> ;
+    schema:recipeIngredient "1 cup all-purpose ﬂour",
+        "1¾ cups light brown sugar",
+        "3 tbsp white miso",
+        "9 oz dark chocolate (70%), broken into small pieces",
+        "¼ cup plus 1 tbsp ground chia seeds",
+        "½ cup plus 2 tbsp (10 tbsp) reﬁned coconut oil",
+        "¾ tsp ﬂaky sea salt" ;
+    schema:recipeInstructions <https://www.epicurious.com/recipes/food/views/salted-miso-brownies/steps> ;
+    schema:tags <https://www.epicurious.com/recipes/food/views/salted-miso-brownies/tags> .
+
+<https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce> a schema:Recipe ;
+    rdfs:label "Sweet Potato Noodles With Cashew-Sesame Sauce" ;
+    schema:aggregateRating <https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/rating> ;
+    schema:author <https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/author0> ;
+    schema:healthScore "5.8"^^xsd:float ;
+    schema:nutrition <https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/nutrition> ;
+    schema:recipeIngredient "1 1\" piece ginger, peeled, finely grated",
+        "1 Tbsp. unseasoned rice vinegar",
+        "1 lb. any color sweet potatoes, peeled, cut into ½\" pieces",
+        "1 lime, cut into wedges",
+        "1½ tsp. toasted sesame oil",
+        "2 Tbsp. extra-virgin olive oil, divided",
+        "2 Tbsp. plus 1½ tsp. tamari; divided, plus more for serving",
+        "4 oz. sweet potato bean thread noodles",
+        "¼ cup (loosely packed) basil leaves, thinly sliced",
+        "¼ cup creamy cashew butter" ;
+    schema:recipeInstructions <https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/steps> ;
+    schema:tags <https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/tags> .
+
+<https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/author0> a schema:Person ;
+    schema:name "Alice Hart" .
+
+<https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 3.591e+01 ;
+    schema:calciumContentDV "2.762307692307692"^^xsd:float ;
+    schema:calories 3.65086e+02 ;
+    schema:caloriesDV "18.2543"^^xsd:float ;
+    schema:carbohydrateContent 5.092926e+01 ;
+    schema:carbohydrateContentDV "18.51972945454546"^^xsd:float ;
+    schema:cholesterolContent 4.5582e+01 ;
+    schema:cholesterolContentDV "15.193999999999999"^^xsd:float ;
+    schema:fatContent 1.84198e+01 ;
+    schema:fatContentDV "23.6151282051282"^^xsd:float ;
+    schema:fiberContent 1.88372e+00 ;
+    schema:fiberContentDV "6.727571428571428"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 8.84324e-01 ;
+    schema:ironContentDV "4.912911111111112"^^xsd:float ;
+    schema:magnesiumContent 1.0068e+00 ;
+    schema:magnesiumContentDV "0.23971428571428577"^^xsd:float ;
+    schema:monounsaturatedFatContent 0e+00 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 6.09114e-02 ;
+    schema:niacinB3ContentDV "0.304557"^^xsd:float ;
+    schema:phosphorusContent 2.0136e+00 ;
+    schema:phosphorusContentDV "0.16108800000000004"^^xsd:float ;
+    schema:polyunsaturatedFatContent 0e+00 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 2.664664e+02 ;
+    schema:potassiumContentDV "5.669497872340426"^^xsd:float ;
+    schema:proteinContent 9.22316e-01 ;
+    schema:proteinContentDV "1.8446320000000003"^^xsd:float ;
+    schema:riboflavinB2Content 1.91292e-02 ;
+    schema:riboflavinB2ContentDV "1.4714769230769233"^^xsd:float ;
+    schema:saturatedFatContent 1.08715e+01 ;
+    schema:saturatedFatContentDV "54.35748"^^xsd:float ;
+    schema:sodiumContent 3.66464e+02 ;
+    schema:sodiumContentDV "15.93321739130435"^^xsd:float ;
+    schema:sugarContent 4.802624e+01 ;
+    schema:sugarContentDV "96.05247200000001"^^xsd:float ;
+    schema:thiaminB1Content 0e+00 ;
+    schema:thiaminB1ContentDV "0.0"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 0e+00 ;
+    schema:vitaminAContentDV "0.0"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 1.20816e-02 ;
+    schema:vitaminB6ContentDV "0.7106823529411767"^^xsd:float ;
+    schema:vitaminCContent 2.517e-01 ;
+    schema:vitaminCContentDV "0.2796666666666667"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 0e+00 ;
+    schema:vitaminEContentDV "0.0"^^xsd:float ;
+    schema:vitaminKContent 0e+00 ;
+    schema:vitaminKContentDV "0.0"^^xsd:float ;
+    schema:zincContent 1.10748e-01 ;
+    schema:zincContentDV "1.0068000000000001"^^xsd:float .
+
+<https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 4 .
+
+<https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/steps> a schema:ItemList ;
+    schema:itemListElement "Spoon the honey over the cut sides of the figs. Heat a large, heavy skillet over a medium-high flame. Add the butter — it should sizzle briskly when it hits the pan. Throw in the thyme sprigs, followed by the figs, cut sides down. Leave undisturbed for 3 to 5 minutes to caramelize, then turn the figs over and cook for another minute.",
+        "Transfer the figs to a plate. Return the skillet to the heat and add about 5 tablespoons water. Simmer, scraping the caramelized honey with a spoon. Pour this sauce over the figs and serve warm with generous spoonfuls of crème fraîche and a few extra thyme leaves." .
+
+<https://cooking.nytimes.com/recipes/1013674-caramelized-figs-with-honey-thyme-and-creme-fraiche/tags> a schema:ItemList ;
+    schema:itemListElement "Creme Fraiche",
+        "Dessert",
+        "Easy",
+        "Fig",
+        "Quick",
+        "Thyme",
+        "Vegetarian" .
+
+<https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/author0> a schema:Person ;
+    schema:name "David Tanis" .
+
+<https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 5.839232e+02 ;
+    schema:calciumContentDV "44.917169230769225"^^xsd:float ;
+    schema:calories 1.610583e+03 ;
+    schema:caloriesDV "80.52915"^^xsd:float ;
+    schema:carbohydrateContent 1.918606e+02 ;
+    schema:carbohydrateContentDV "69.7674749090909"^^xsd:float ;
+    schema:cholesterolContent 3.12366e+02 ;
+    schema:cholesterolContentDV "104.122"^^xsd:float ;
+    schema:fatContent 8.82838e+01 ;
+    schema:fatContentDV "113.18435897435894"^^xsd:float ;
+    schema:fiberContent 1.894e+00 ;
+    schema:fiberContentDV "6.764285714285714"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 8.496e-01 ;
+    schema:ironContentDV "4.72"^^xsd:float ;
+    schema:magnesiumContent 7.2e-01 ;
+    schema:magnesiumContentDV "0.17142857142857143"^^xsd:float ;
+    schema:monounsaturatedFatContent 3.84e-03 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 0e+00 ;
+    schema:niacinB3ContentDV "0.0"^^xsd:float ;
+    schema:phosphorusContent 3.12e+00 ;
+    schema:phosphorusContentDV "0.2496"^^xsd:float ;
+    schema:polyunsaturatedFatContent 6e-03 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 1.6852e+02 ;
+    schema:potassiumContentDV "3.5855319148936173"^^xsd:float ;
+    schema:proteinContent 1.971929e+01 ;
+    schema:proteinContentDV "39.438587999999996"^^xsd:float ;
+    schema:riboflavinB2Content 0e+00 ;
+    schema:riboflavinB2ContentDV "0.0"^^xsd:float ;
+    schema:saturatedFatContent 4.7067e+01 ;
+    schema:saturatedFatContentDV "235.33502"^^xsd:float ;
+    schema:sodiumContent 5.854368e+02 ;
+    schema:sodiumContentDV "25.453773913043477"^^xsd:float ;
+    schema:sugarContent 1.657045e+02 ;
+    schema:sugarContentDV "331.408916"^^xsd:float ;
+    schema:thiaminB1Content 0e+00 ;
+    schema:thiaminB1ContentDV "0.0"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 0e+00 ;
+    schema:vitaminAContentDV "0.0"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 0e+00 ;
+    schema:vitaminB6ContentDV "0.0"^^xsd:float ;
+    schema:vitaminCContent 2.87852e+01 ;
+    schema:vitaminCContentDV "31.983555555555554"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 0e+00 ;
+    schema:vitaminEContentDV "0.0"^^xsd:float ;
+    schema:vitaminKContent 0e+00 ;
+    schema:vitaminKContentDV "0.0"^^xsd:float ;
+    schema:zincContent 1.44e-02 ;
+    schema:zincContentDV "0.13090909090909092"^^xsd:float .
+
+<https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 4 .
+
+<https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/steps> a schema:ItemList ;
+    schema:itemListElement "Combine chopped pistachios with 1 tablespoon sugar. Heat oven to 350 degrees. Put egg whites in mixing bowl and add 3 remaining tablespoons sugar. Beat whites to stiff peaks. Spoon a pile of meringue onto each custard-filled ramekin, using all the meringue. Sprinkle with pistachio-sugar mixture. Bake for 10 to 15 minutes, until the tops are browned. (May be baked just before guests arrive, then kept at room temperature until time for dessert.)",
+        "Heat half-and-half to just under a boil in a heavy-bottomed saucepan or a double boiler. In a mixing bowl, combine egg yolks, 3/4 cup sugar, cornstarch and salt. Whisk well until creamy, a minute or two.",
+        "Slowly whisk 1/2 cup of hot half-and-half into egg-sugar mixture, then add remaining half-and-half and mix well. Pour back into saucepan and cook over medium heat, whisking continuously, until custard is thick, about 5 minutes. Remove from heat and whisk in butter, lemon zest and lemon juice. Spoon custard into 6 4-ounce ramekins. Cover with plastic wrap and refrigerate for at least 2 hours, and up to several hours. (May be done even a day ahead.)" .
+
+<https://cooking.nytimes.com/recipes/1014654-lemon-meringue-pots-de-creme/tags> a schema:ItemList ;
+    schema:itemListElement "Dessert",
+        "Egg",
+        "Half",
+        "Lemon" .
+
+<https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/author0> a schema:Person ;
+    schema:name "Martha Rose Shulman" .
+
+<https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 1.723818e+02 ;
+    schema:calciumContentDV "13.260138461538462"^^xsd:float ;
+    schema:calories 8.867664e+02 ;
+    schema:caloriesDV "44.33832"^^xsd:float ;
+    schema:carbohydrateContent 1.244596e+02 ;
+    schema:carbohydrateContentDV "45.258021818181824"^^xsd:float ;
+    schema:cholesterolContent 4.1638e+01 ;
+    schema:cholesterolContentDV "13.879333333333332"^^xsd:float ;
+    schema:fatContent 3.484792e+01 ;
+    schema:fatContentDV "44.67681538461538"^^xsd:float ;
+    schema:fiberContent 5.68638e+00 ;
+    schema:fiberContentDV "20.3085"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 1.869916e+00 ;
+    schema:ironContentDV "10.388422222222223"^^xsd:float ;
+    schema:magnesiumContent 2.48422e+01 ;
+    schema:magnesiumContentDV "5.914809523809524"^^xsd:float ;
+    schema:monounsaturatedFatContent 3.503e-03 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 4.24084e-02 ;
+    schema:niacinB3ContentDV "0.212042"^^xsd:float ;
+    schema:phosphorusContent 1.95188e+01 ;
+    schema:phosphorusContentDV "1.5615039999999998"^^xsd:float ;
+    schema:polyunsaturatedFatContent 2.8417e-02 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 9.052558e+02 ;
+    schema:potassiumContentDV "19.260761702127663"^^xsd:float ;
+    schema:proteinContent 1.330037e+01 ;
+    schema:proteinContentDV "26.600746000000004"^^xsd:float ;
+    schema:riboflavinB2Content 9.367e-03 ;
+    schema:riboflavinB2ContentDV "0.7205384615384616"^^xsd:float ;
+    schema:saturatedFatContent 9.002773e+00 ;
+    schema:saturatedFatContentDV "45.013866"^^xsd:float ;
+    schema:sodiumContent 3.856364e+02 ;
+    schema:sodiumContentDV "16.766800000000003"^^xsd:float ;
+    schema:sugarContent 1.107124e+02 ;
+    schema:sugarContentDV "221.424838"^^xsd:float ;
+    schema:thiaminB1Content 1.0846e-03 ;
+    schema:thiaminB1ContentDV "0.09038333333333332"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 0e+00 ;
+    schema:vitaminAContentDV "0.0"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 2.5636e-03 ;
+    schema:vitaminB6ContentDV "0.1508"^^xsd:float ;
+    schema:vitaminCContent 7.0977e+01 ;
+    schema:vitaminCContentDV "78.86333333333334"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 0e+00 ;
+    schema:vitaminEContentDV "0.0"^^xsd:float ;
+    schema:vitaminKContent 0e+00 ;
+    schema:vitaminKContentDV "0.0"^^xsd:float ;
+    schema:zincContent 1.7558e-02 ;
+    schema:zincContentDV "0.15961818181818183"^^xsd:float .
+
+<https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 5 .
+
+<https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/steps> a schema:ItemList ;
+    schema:itemListElement """For the sauce, in a medium saucepan combine the sugar, orange juice and 
+
+
+
+vanilla bean seeds or vanilla extract and bring to a boil. Reduce by a third. Add the 
+
+
+
+apricots, turn the heat down to medium and simmer 5 to 10 minutes, until the apricots are 
+
+
+
+soft. Remove from the heat and divide among 4 plates or pour the sauce onto a platter and 
+
+
+
+arrange the apricots on the edge.""",
+        """Heat a 10-inch skillet that can go into the oven over medium-high heat. Add 
+
+
+
+the butter to the hot pan, and when the foam subsides and the butter is just beginning to 
+
+
+
+color, gently scrape in the egg mixture, using a rubber spatula. Do not stir. Immediately 
+
+
+
+transfer to the oven for 2 1/2 to 3 minutes, until puffed. Remove from the heat, sprinkle 
+
+
+
+half the toasted almonds over the omelet and slide or turn out onto the platter, folding the 
+
+
+
+puffed omelet in half as you do. Sprinkle with the remaining toasted almonds and dust 
+
+
+
+with powdered sugar if you wish. Spoon onto the plates with the apricot sauce and serve.
+
+
+
+Note: You can also serve the apricot sauce separately and spoon it over the 
+
+
+
+soufflé.""",
+        """In another large bowl, beat the egg yolks and add the Cointreau, salt and 
+
+
+
+nutmeg. Stir 1/4 of the egg whites into this mixture, then gently fold in the rest.""",
+        "Preheat the oven to 425 degrees. Have the platter for your omelet close at hand.",
+        """Whisk the egg whites in a clean dry bowl or in the bowl of a standing mixer 
+
+
+
+fitted with the whisk attachment. When they begin to foam, add the cream of tartar and 
+
+
+
+continue to whisk at medium speed until they form medium peaks. Continue whisking on 
+
+
+
+medium speed while you slowly add the sugar, until the egg whites form stiff, satiny but 
+
+
+
+not dry peaks.""" .
+
+<https://cooking.nytimes.com/recipes/1014861-souffle-omelet-with-apricot-sauce/tags> a schema:ItemList ;
+    schema:itemListElement "Apricot",
+        "Dessert",
+        "Easy",
+        "Egg",
+        "Gluten Free",
+        "Halal",
+        "Healthy",
+        "Kosher",
+        "Low Sodium",
+        "Quick",
+        "Summer",
+        "Vegetarian" .
+
+<https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/author0> a schema:Person ;
+    schema:name "Yossy Arefi" .
+
+<https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/author1> a schema:Person ;
+    schema:name "Emily Weinstein" .
+
+<https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 2.925e+02 ;
+    schema:calciumContentDV "22.5"^^xsd:float ;
+    schema:calories 2.571065e+03 ;
+    schema:caloriesDV "128.55324000000002"^^xsd:float ;
+    schema:carbohydrateContent 3.40294e+02 ;
+    schema:carbohydrateContentDV "123.74327272727274"^^xsd:float ;
+    schema:cholesterolContent 2.7178e+02 ;
+    schema:cholesterolContentDV "90.59333333333335"^^xsd:float ;
+    schema:fatContent 1.031745e+02 ;
+    schema:fatContentDV "132.27499999999998"^^xsd:float ;
+    schema:fiberContent 4.273278e+01 ;
+    schema:fiberContentDV "152.61707142857142"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 1.58475e+01 ;
+    schema:ironContentDV "88.04166666666667"^^xsd:float ;
+    schema:magnesiumContent 4.1175e+02 ;
+    schema:magnesiumContentDV "98.03571428571428"^^xsd:float ;
+    schema:monounsaturatedFatContent 2.7e-02 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 1.11905e+01 ;
+    schema:niacinB3ContentDV "55.95250000000001"^^xsd:float ;
+    schema:phosphorusContent 8.2575e+02 ;
+    schema:phosphorusContentDV "66.06"^^xsd:float ;
+    schema:polyunsaturatedFatContent 1.8315e+00 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 3.1275e+03 ;
+    schema:potassiumContentDV "66.54255319148936"^^xsd:float ;
+    schema:proteinContent 6.5825e+01 ;
+    schema:proteinContentDV "131.64999999999998"^^xsd:float ;
+    schema:riboflavinB2Content 8.058e-01 ;
+    schema:riboflavinB2ContentDV "61.984615384615395"^^xsd:float ;
+    schema:saturatedFatContent 6.42425e+01 ;
+    schema:saturatedFatContentDV "321.21250000000003"^^xsd:float ;
+    schema:sodiumContent 1.027284e+03 ;
+    schema:sodiumContentDV "44.66452173913044"^^xsd:float ;
+    schema:sugarContent 6.779472e+01 ;
+    schema:sugarContentDV "135.58944"^^xsd:float ;
+    schema:thiaminB1Content 1.44675e+00 ;
+    schema:thiaminB1ContentDV "120.5625"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 2.25e+00 ;
+    schema:vitaminAContentDV "0.25"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 6.3675e-01 ;
+    schema:vitaminB6ContentDV "37.455882352941174"^^xsd:float ;
+    schema:vitaminCContent 0e+00 ;
+    schema:vitaminCContentDV "0.0"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 0 ;
+    schema:vitaminEContentDV "0.0"^^xsd:float ;
+    schema:vitaminKContent 0 ;
+    schema:vitaminKContentDV "0.0"^^xsd:float ;
+    schema:zincContent 6.21e+00 ;
+    schema:zincContentDV "56.454545454545446"^^xsd:float .
+
+<https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 4 .
+
+<https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/steps> a schema:ItemList ;
+    schema:itemListElement "Bake until crust is deep golden brown, 15 to 20 minutes. Check on the crust halfway through baking; if any bubbles have appeared, use a spatula to press them flat. Cool the crust completely on the pan.",
+        "Carefully slide the cooled crust off the baking sheet onto a serving platter or board. Spread mascarpone over the top in an even layer, dot with jam, then arrange sliced strawberries in a single, slightly overlapping layer in a decorative pattern. Sprinkle the tart with the remaining tablespoon of sugar. (Omit this final sprinkling if your strawberries are particularly sweet.) Slice and serve immediately.",
+        "Form the dough into a disk and wrap in plastic wrap. Chill for at least 2 hours, but preferably overnight. (Dough keeps for up to 3 months in the freezer wrapped in a double layer of plastic wrap and a layer of foil. Thaw in refrigerator before using.)",
+        "On a lightly floured piece of parchment paper, roll out the pie crust into an oval about 15 x 6 inches and just under 1/4-inch thick. Use a paring knife or pastry cutter to trim any rough edges and move the parchment paper and crust to a baking sheet, preferably rimless. Dock the crust with a fork to prevent it from puffing up too much in the oven. Brush the surface of the crust from edge to edge with the egg wash.",
+        "Position a rack in the center of the oven and heat to 400 degrees.",
+        "Prepare the crust: Whisk the flours and salt together in a large bowl. Combine apple cider vinegar with 5 tablespoons ice water.",
+        "Prepare the tart: While the crust is cooling, combine mascarpone and 2 tablespoons sugar. Hull the strawberries and cut them into 1/4-inch slices.",
+        "Sprinkle 3 tablespoons of the cold vinegar-water mixture over the flour mixture. Use a gentle hand or wooden spoon to stir the water into the flour until just combined. If using a food processor, pulse a few more times, or until the dough begins to come together. If the dough seems dry, add more of the cold vinegar-water mixture, a couple of teaspoons at a time. You have added enough water when you can pick up a handful of the dough and easily squeeze it together without it falling apart.",
+        "Working quickly, add butter to the flour mixture and toss to coat. Use your fingers or the palms of your hands to press each cube of butter into the flour, ensuring that each butter piece gets coated, until the mixture resembles coarse meal with some pea-size lumps. If at any time the butter seems warm or soft, briefly refrigerate the bowl. Alternatively, you can pulse the butter and flour together in a food processor." .
+
+<https://cooking.nytimes.com/recipes/1018052-simplest-strawberry-tart/tags> a schema:ItemList ;
+    schema:itemListElement "Dessert",
+        "Mascarpone",
+        "Pies And Tarts",
+        "Rye Flour",
+        "Spring",
+        "Strawberry" .
+
+<https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/author0> a schema:Person ;
+    schema:name "Sarah Copeland" .
+
+<https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 1.214392e+03 ;
+    schema:calciumContentDV "93.41476923076924"^^xsd:float ;
+    schema:calories 3.126534e+03 ;
+    schema:caloriesDV "156.32670499999998"^^xsd:float ;
+    schema:carbohydrateContent 9.764189e+01 ;
+    schema:carbohydrateContentDV "35.50614181818182"^^xsd:float ;
+    schema:cholesterolContent 0e+00 ;
+    schema:cholesterolContentDV "0.0"^^xsd:float ;
+    schema:fatContent 2.980702e+02 ;
+    schema:fatContentDV "382.141282051282"^^xsd:float ;
+    schema:fiberContent 5.856349e+01 ;
+    schema:fiberContentDV "209.15532142857143"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 1.423934e+01 ;
+    schema:ironContentDV "79.10747222222221"^^xsd:float ;
+    schema:magnesiumContent 1.626618e+02 ;
+    schema:magnesiumContentDV "38.729"^^xsd:float ;
+    schema:monounsaturatedFatContent 1.308202e+02 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 3.216113e+00 ;
+    schema:niacinB3ContentDV "16.080565999999997"^^xsd:float ;
+    schema:phosphorusContent 1.511194e+02 ;
+    schema:phosphorusContentDV "12.089552"^^xsd:float ;
+    schema:polyunsaturatedFatContent 2.668433e+01 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 2.257088e+03 ;
+    schema:potassiumContentDV "48.02314255319148"^^xsd:float ;
+    schema:proteinContent 6.38076e+01 ;
+    schema:proteinContentDV "127.61519999999997"^^xsd:float ;
+    schema:riboflavinB2Content 8.13472e-02 ;
+    schema:riboflavinB2ContentDV "6.257476923076924"^^xsd:float ;
+    schema:saturatedFatContent 3.196058e+01 ;
+    schema:saturatedFatContentDV "159.80289499999998"^^xsd:float ;
+    schema:sodiumContent 1.655107e+04 ;
+    schema:sodiumContentDV "719.6117391304348"^^xsd:float ;
+    schema:sugarContent 2.215621e+01 ;
+    schema:sugarContentDV "44.312428000000004"^^xsd:float ;
+    schema:thiaminB1Content 3.160278e-01 ;
+    schema:thiaminB1ContentDV "26.335650000000005"^^xsd:float ;
+    schema:transFatContent 1.11785e-01 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 1.897754e+02 ;
+    schema:vitaminAContentDV "21.086155555555557"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 3.604916e-01 ;
+    schema:vitaminB6ContentDV "21.20538823529412"^^xsd:float ;
+    schema:vitaminCContent 4.119e-01 ;
+    schema:vitaminCContentDV "0.45766666666666656"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 4.135974e+01 ;
+    schema:vitaminEContentDV "275.7316"^^xsd:float ;
+    schema:vitaminKContent 3.409742e+01 ;
+    schema:vitaminKContentDV "28.414516666666668"^^xsd:float ;
+    schema:zincContent 1.512872e+00 ;
+    schema:zincContentDV "13.753381818181817"^^xsd:float .
+
+<https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 4 .
+
+<https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/steps> a schema:ItemList ;
+    schema:itemListElement "In a large wok, skillet or cast-iron pan, heat the canola oil over medium-high until shimmering. Add the almonds, season with salt and cook, tossing, until toasted and crisp, 3 to 4 minutes. Add the celery and crunchy vegetables and toss until slightly softened, 1 to 2 minutes.",
+        "Season with sesame oil and salt to taste. Divide the rice among four bowls and spoon the stir-fry over the top. Scatter the herbs and drizzle with soy sauce and Sriracha, if using.",
+        "Sprinkle with sesame seeds, if using, and toss until toasted, 1 to 2 minutes. Add the sturdy greens, toss until coated in oil, then add the vinegar, scraping the bottom of the wok to release any browned bits. Cover and cook until greens are lightly wilted, about 1 minute." .
+
+<https://cooking.nytimes.com/recipes/1021006-any-vegetable-stir-fry/tags> a schema:ItemList ;
+    schema:itemListElement "Almond",
+        "Celery",
+        "Dinner",
+        "Gluten Free",
+        "Kale",
+        "Main Course",
+        "Mint",
+        "Quick",
+        "Rice",
+        "Rice Wine Vinegar",
+        "Sesame Oil",
+        "Sesame Seed",
+        "Snap Pea",
+        "Spring",
+        "Summer",
+        "Vegan",
+        "Vegetables",
+        "Vegetarian",
+        "Weekday" .
+
+<https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/author0> a schema:Person ;
+    schema:name "Tejal Rao" .
+
+<https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 8.190353e+02 ;
+    schema:calciumContentDV "63.002717307692315"^^xsd:float ;
+    schema:calories 7.000149e+02 ;
+    schema:caloriesDV "35.00074375"^^xsd:float ;
+    schema:carbohydrateContent 1.340213e+01 ;
+    schema:carbohydrateContentDV "4.8735029090909086"^^xsd:float ;
+    schema:cholesterolContent 1.337234e+02 ;
+    schema:cholesterolContentDV "44.574450000000006"^^xsd:float ;
+    schema:fatContent 7.148648e+01 ;
+    schema:fatContentDV "91.64933076923077"^^xsd:float ;
+    schema:fiberContent 1.916338e+00 ;
+    schema:fiberContentDV "6.844062500000001"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 1.247828e+00 ;
+    schema:ironContentDV "6.932377777777778"^^xsd:float ;
+    schema:magnesiumContent 1.72063e+01 ;
+    schema:magnesiumContentDV "4.096738095238095"^^xsd:float ;
+    schema:monounsaturatedFatContent 1.877399e+01 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 6.921673e-01 ;
+    schema:niacinB3ContentDV "3.4608365"^^xsd:float ;
+    schema:phosphorusContent 7.746982e+01 ;
+    schema:phosphorusContentDV "6.1975859999999985"^^xsd:float ;
+    schema:polyunsaturatedFatContent 1.740071e+01 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 2.862263e+03 ;
+    schema:potassiumContentDV "60.899212765957444"^^xsd:float ;
+    schema:proteinContent 4.071571e+00 ;
+    schema:proteinContentDV "8.143142999999998"^^xsd:float ;
+    schema:riboflavinB2Content 2.32829e-01 ;
+    schema:riboflavinB2ContentDV "17.909921153846152"^^xsd:float ;
+    schema:saturatedFatContent 3.090275e+01 ;
+    schema:saturatedFatContentDV "154.5137255"^^xsd:float ;
+    schema:sodiumContent 3.949365e+03 ;
+    schema:sodiumContentDV "171.71154347826086"^^xsd:float ;
+    schema:sugarContent 7.861645e+00 ;
+    schema:sugarContentDV "15.723290500000001"^^xsd:float ;
+    schema:thiaminB1Content 4.34486e-02 ;
+    schema:thiaminB1ContentDV "3.620716666666667"^^xsd:float ;
+    schema:transFatContent 2.2185e-04 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 4.872712e+02 ;
+    schema:vitaminAContentDV "54.14125"^^xsd:float ;
+    schema:vitaminB12Content 1.89772e-01 ;
+    schema:vitaminB12ContentDV "7.907166666666667"^^xsd:float ;
+    schema:vitaminB6Content 1.090111e-01 ;
+    schema:vitaminB6ContentDV "6.412419117647058"^^xsd:float ;
+    schema:vitaminCContent 8.491123e+00 ;
+    schema:vitaminCContentDV "9.434580555555556"^^xsd:float ;
+    schema:vitaminDContent 1.89272e+00 ;
+    schema:vitaminDContentDV "9.4636"^^xsd:float ;
+    schema:vitaminEContent 5.196656e+00 ;
+    schema:vitaminEContentDV "34.64437500000001"^^xsd:float ;
+    schema:vitaminKContent 4.531695e+00 ;
+    schema:vitaminKContentDV "3.7764125"^^xsd:float ;
+    schema:zincContent 3.75146e-01 ;
+    schema:zincContentDV "3.410418181818182"^^xsd:float .
+
+<https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 4 .
+
+<https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/steps> a schema:ItemList ;
+    schema:itemListElement "Add the beans and chile powder to the onion mixture, and mix well. Use a fork to mash a tablespoon or so of the beans against the side of the skillet to help thicken the sauce.",
+        "Add the crushed or puréed tomatoes and garam masala to the beans, and mix well. Drizzle the top with cream or scatter with cheese, then slide into the oven and bake, uncovered, until the sauce has thickened and the top is lightly browned, 30 to 40 minutes.",
+        "Heat the oven to 350 degrees. Quarter the onion, then thinly slice one portion. Set aside sliced onion. Add the remaining onion to a food processor, along with the garlic, chile and ginger. Purée until fairly smooth, scraping down the sides of the bowl as needed.",
+        "In a large, deep ovenproof skillet, heat the oil over medium. Add the cumin seeds and cook until lightly toasted, about 30 seconds. Add the onion mixture and salt, and cook, stirring occasionally, until the excess liquid has evaporated and the mixture is just starting to take on a golden color, 8 to 10 minutes.",
+        "Prepare the pickle: While the beans are baking, bring a small saucepan of water to a boil. Transfer 1/4 cup hot water to a small bowl. Stir in the sugar and salt until dissolved. Add the reserved onion slices to the boiling water in the saucepan, turn off the heat and, after 1 minute, drain the onion. Transfer the softened onion to the small bowl and stir in the vinegar.",
+        "When the beans are ready, fish out the pickled onion slices and arrange on top, letting a few drops of the pickling liquid flick over the beans to season them. Garnish with cilantro and serve with hot rice, buttered toast or flour tortillas.",
+        "While the mixture cooks, purée the canned tomatoes and their juices, if using diced, chopped or whole tomatoes." .
+
+<https://cooking.nytimes.com/recipes/1021035-baked-rajma-punjabi-style-red-beans-with-cream/tags> a schema:ItemList ;
+    schema:itemListElement "Beans",
+        "Canned Tomato",
+        "Cilantro",
+        "Dinner",
+        "Ginger",
+        "Indian",
+        "Kidney Bean",
+        "Main Course",
+        "One Pot",
+        "Onion",
+        "Vegetables" .
+
+<https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/author0> a schema:Person ;
+    schema:name "Alexa Weibel" .
+
+<https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 8.406846e+02 ;
+    schema:calciumContentDV "64.66804615384616"^^xsd:float ;
+    schema:calories 1.013153e+03 ;
+    schema:caloriesDV "50.657639999999994"^^xsd:float ;
+    schema:carbohydrateContent 9.946975e+01 ;
+    schema:carbohydrateContentDV "36.17081963636364"^^xsd:float ;
+    schema:cholesterolContent 0e+00 ;
+    schema:cholesterolContentDV "0.0"^^xsd:float ;
+    schema:fatContent 4.8712e+01 ;
+    schema:fatContentDV "62.45128205128205"^^xsd:float ;
+    schema:fiberContent 3.5354e+01 ;
+    schema:fiberContentDV "126.26428571428572"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 2.612728e+01 ;
+    schema:ironContentDV "145.15155555555557"^^xsd:float ;
+    schema:magnesiumContent 8.39e-01 ;
+    schema:magnesiumContentDV "0.19976190476190475"^^xsd:float ;
+    schema:monounsaturatedFatContent 3.066e+01 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 0e+00 ;
+    schema:niacinB3ContentDV "0.0"^^xsd:float ;
+    schema:phosphorusContent 1.3424e+00 ;
+    schema:phosphorusContentDV "0.10739200000000002"^^xsd:float ;
+    schema:polyunsaturatedFatContent 4.41e+00 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 4.293679e+03 ;
+    schema:potassiumContentDV "91.35488085106383"^^xsd:float ;
+    schema:proteinContent 2.82086e+01 ;
+    schema:proteinContentDV "56.41719999999999"^^xsd:float ;
+    schema:riboflavinB2Content 0e+00 ;
+    schema:riboflavinB2ContentDV "0.0"^^xsd:float ;
+    schema:saturatedFatContent 5.796e+00 ;
+    schema:saturatedFatContentDV "28.98"^^xsd:float ;
+    schema:sodiumContent 4.068293e+03 ;
+    schema:sodiumContentDV "176.8823043478261"^^xsd:float ;
+    schema:sugarContent 7.126482e+01 ;
+    schema:sugarContentDV "142.52964"^^xsd:float ;
+    schema:thiaminB1Content 0e+00 ;
+    schema:thiaminB1ContentDV "0.0"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 0e+00 ;
+    schema:vitaminAContentDV "0.0"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 0e+00 ;
+    schema:vitaminB6ContentDV "0.0"^^xsd:float ;
+    schema:vitaminCContent 3.59e-01 ;
+    schema:vitaminCContentDV "0.3988888888888889"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 6.048e+00 ;
+    schema:vitaminEContentDV "40.32"^^xsd:float ;
+    schema:vitaminKContent 2.5284e+01 ;
+    schema:vitaminKContentDV "21.07"^^xsd:float ;
+    schema:zincContent 6.712e-03 ;
+    schema:zincContentDV "0.06101818181818182"^^xsd:float .
+
+<https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 4 .
+
+<https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/steps> a schema:ItemList ;
+    schema:itemListElement "Prepare the pickled onions: Set the sliced onion in a small heatproof bowl. Combine the vinegar, sugar, coriander seeds (if using), salt and 1/2 cup water in a small saucepan. Bring to a boil over high, then pour over onions. Stir to combine, let cool, then transfer onions and brine to a lidded container. Refrigerate until chilled. (Makes about 2/3 cup drained onions. Onions will keep up to 3 weeks.)",
+        "Prepare the salad: In a medium bowl, combine the celery, carrots, olive oil, lemon zest and juice. Season generously with salt and pepper and toss to coat.",
+        "To the vinaigrette, add the mustard, 1/4 cup drained pickled red onions and 4 teaspoons of the pickled red onion brine and stir to combine; season to taste. Add vinaigrette to salad, toss to coat and season. Serve immediately.",
+        "When ready to serve, add the lettuce, radishes (if using) and herbs to a large bowl, season lightly with salt and pepper and gently toss to coat. Using a slotted spoon or tongs, transfer the celery and carrots to the vegetables in the large bowl, leaving the vinaigrette behind in the medium bowl." .
+
+<https://cooking.nytimes.com/recipes/1021055-quick-pickled-vegetable-salad/tags> a schema:ItemList ;
+    schema:itemListElement "Brunch",
+        "Carrot",
+        "Celery",
+        "Coriander",
+        "Dinner",
+        "Herb",
+        "Lemon",
+        "Lettuce",
+        "Lunch",
+        "Mustard",
+        "Radish",
+        "Red Onion",
+        "Salads And Dressings",
+        "Side Dish",
+        "Spring",
+        "Sugar",
+        "Summer",
+        "Vegetables",
+        "Vinegar",
+        "Weekday" .
+
+<https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/author0> a schema:Person ;
+    schema:name "Ali Slagle" .
+
+<https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 2.201574e+02 ;
+    schema:calciumContentDV "16.935188461538463"^^xsd:float ;
+    schema:calories 2.04136e+03 ;
+    schema:caloriesDV "102.06800750000001"^^xsd:float ;
+    schema:carbohydrateContent 2.847195e+02 ;
+    schema:carbohydrateContentDV "103.53435472727273"^^xsd:float ;
+    schema:cholesterolContent 0e+00 ;
+    schema:cholesterolContentDV "0.0"^^xsd:float ;
+    schema:fatContent 8.069865e+01 ;
+    schema:fatContentDV "103.45980961538461"^^xsd:float ;
+    schema:fiberContent 2.454066e+01 ;
+    schema:fiberContentDV "87.64523214285714"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 2.011459e+01 ;
+    schema:ironContentDV "111.74773055555558"^^xsd:float ;
+    schema:magnesiumContent 9.405745e+00 ;
+    schema:magnesiumContentDV "2.239463095238095"^^xsd:float ;
+    schema:monounsaturatedFatContent 5.110101e+01 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 1.282544e+01 ;
+    schema:niacinB3ContentDV "64.12717675"^^xsd:float ;
+    schema:phosphorusContent 2.02696e+01 ;
+    schema:phosphorusContentDV "1.621568"^^xsd:float ;
+    schema:polyunsaturatedFatContent 7.353524e+00 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 3.480264e+02 ;
+    schema:potassiumContentDV "7.404818085106382"^^xsd:float ;
+    schema:proteinContent 5.26894e+01 ;
+    schema:proteinContentDV "105.378792"^^xsd:float ;
+    schema:riboflavinB2Content 7.891787e-01 ;
+    schema:riboflavinB2ContentDV "60.70605769230768"^^xsd:float ;
+    schema:saturatedFatContent 9.666712e+00 ;
+    schema:saturatedFatContentDV "48.333560000000006"^^xsd:float ;
+    schema:sodiumContent 2.341443e+03 ;
+    schema:sodiumContentDV "101.8018652173913"^^xsd:float ;
+    schema:sugarContent 1.952872e+01 ;
+    schema:sugarContentDV "39.057438"^^xsd:float ;
+    schema:thiaminB1Content 2.425526e+00 ;
+    schema:thiaminB1ContentDV "202.12715416666666"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 4.7318e+00 ;
+    schema:vitaminAContentDV "0.5257555555555555"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 4.79391e-02 ;
+    schema:vitaminB6ContentDV "2.8199470588235296"^^xsd:float ;
+    schema:vitaminCContent 9.778055e+00 ;
+    schema:vitaminCContentDV "10.864505555555557"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 1.024712e+01 ;
+    schema:vitaminEContentDV "68.31416"^^xsd:float ;
+    schema:vitaminKContent 6.201356e+01 ;
+    schema:vitaminKContentDV "51.67796666666666"^^xsd:float ;
+    schema:zincContent 1.385145e-01 ;
+    schema:zincContentDV "1.2592227272727274"^^xsd:float .
+
+<https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 5 .
+
+<https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/steps> a schema:ItemList ;
+    schema:itemListElement "Bring a medium pot of salted water to a boil. Add the orzo and cook until al dente according to package directions. Two minutes before the orzo is done, add the asparagus. Drain the orzo and asparagus. Wipe out and reserve the pot.",
+        "In the reserved pot, heat the remaining 2 tablespoons oil over medium. Add the panko and cook, stirring, until golden brown, 3 to 5 minutes. Remove from heat, then stir in the garlic and season with salt and pepper.",
+        "Stir the Parmesan and herbs into the orzo, taste, then season with salt, pepper and additional lemon juice, if desired. Top with the toasted bread crumbs and more Parmesan if you like. Serve warm or at room temperature.",
+        "While the orzo and asparagus cook, make the dressing: In a large bowl, stir together 3 tablespoons oil and the lemon zest and juice; season to taste with salt and pepper. Add the drained orzo and asparagus and toss to coat. Set aside while you toast the bread crumbs." .
+
+<https://cooking.nytimes.com/recipes/1021068-lemony-orzo-with-asparagus-and-garlic-bread-crumbs/tags> a schema:ItemList ;
+    schema:itemListElement "Asparagus",
+        "Brunch",
+        "Dill",
+        "Dinner",
+        "Garlic",
+        "Lemon",
+        "Lunch",
+        "Main Course",
+        "Orzo",
+        "Panko",
+        "Parmesan",
+        "Pastas",
+        "Spring",
+        "Summer",
+        "Vegetarian",
+        "Weekday" .
+
+<https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/author0> a schema:Person ;
+    schema:name "Yotam Ottolenghi" .
+
+<https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 6.4114e+02 ;
+    schema:calciumContentDV "49.31846153846154"^^xsd:float ;
+    schema:calories 3.51128e+03 ;
+    schema:caloriesDV "175.564"^^xsd:float ;
+    schema:carbohydrateContent 1.58832e+02 ;
+    schema:carbohydrateContentDV "57.757090909090905"^^xsd:float ;
+    schema:cholesterolContent 1.10916e+03 ;
+    schema:cholesterolContentDV "369.72"^^xsd:float ;
+    schema:fatContent 1.9285e+02 ;
+    schema:fatContentDV "247.24358974358975"^^xsd:float ;
+    schema:fiberContent 3.05e+01 ;
+    schema:fiberContentDV "108.92857142857142"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 2.95454e+01 ;
+    schema:ironContentDV "164.14111111111112"^^xsd:float ;
+    schema:magnesiumContent 4.6858e+02 ;
+    schema:magnesiumContentDV "111.56666666666666"^^xsd:float ;
+    schema:monounsaturatedFatContent 6.8151e+01 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 7.60876e+01 ;
+    schema:niacinB3ContentDV "380.438"^^xsd:float ;
+    schema:phosphorusContent 3.17538e+03 ;
+    schema:phosphorusContentDV "254.0304"^^xsd:float ;
+    schema:polyunsaturatedFatContent 5.63106e+01 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 4.66744e+03 ;
+    schema:potassiumContentDV "99.3072340425532"^^xsd:float ;
+    schema:proteinContent 2.91568e+02 ;
+    schema:proteinContentDV "583.136"^^xsd:float ;
+    schema:riboflavinB2Content 3.04694e+00 ;
+    schema:riboflavinB2ContentDV "234.38"^^xsd:float ;
+    schema:saturatedFatContent 4.99977e+01 ;
+    schema:saturatedFatContentDV "249.9885"^^xsd:float ;
+    schema:sodiumContent 2.43348e+03 ;
+    schema:sodiumContentDV "105.80347826086958"^^xsd:float ;
+    schema:sugarContent 2.675e+01 ;
+    schema:sugarContentDV "53.5"^^xsd:float ;
+    schema:thiaminB1Content 2.14524e+00 ;
+    schema:thiaminB1ContentDV "178.77000000000004"^^xsd:float ;
+    schema:transFatContent 2.57382e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 4.341e+02 ;
+    schema:vitaminAContentDV "48.233333333333334"^^xsd:float ;
+    schema:vitaminB12Content 1.8486e+01 ;
+    schema:vitaminB12ContentDV "770.25"^^xsd:float ;
+    schema:vitaminB6Content 8.2342e+00 ;
+    schema:vitaminB6ContentDV "484.3647058823529"^^xsd:float ;
+    schema:vitaminCContent 2.93088e+01 ;
+    schema:vitaminCContentDV "32.565333333333335"^^xsd:float ;
+    schema:vitaminDContent 5.688e+00 ;
+    schema:vitaminDContentDV "28.440000000000005"^^xsd:float ;
+    schema:vitaminEContent 3.1876e+00 ;
+    schema:vitaminEContentDV "21.250666666666664"^^xsd:float ;
+    schema:vitaminKContent 2.25e+01 ;
+    schema:vitaminKContentDV "18.75"^^xsd:float ;
+    schema:zincContent 4.6014e+01 ;
+    schema:zincContentDV "418.3090909090909"^^xsd:float .
+
+<https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 0e+00 .
+
+<https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/steps> a schema:ItemList ;
+    schema:itemListElement "Drain the chickpeas. You should have roughly 3 cups/600 g now. Place the chickpeas in a food processor and process until you get a stiff paste. Then, with the machine still running, add the tahini paste, lemon juice, garlic, and 1½ teaspoons salt. Finally, slowly drizzle in the iced water and allow it to mix for about 5 minutes, until you get a very smooth and creamy paste.",
+        "The next day, drain the chickpeas. Place a medium saucepan over high heat and add the drained chickpeas and baking soda. Cook for about 3 minutes, stirring constantly. Add the water and bring to a boil. Cook, skimming off any foam and any skins that float to the surface. The chickpeas will need to cook between 20 and 40 minutes, depending on the type and freshness, sometimes even longer. Once done, they should be very tender, breaking up easily when pressed between your thumb and finger, almost but not quite mushy.",
+        "The night before, put the chickpeas in a large bowl and cover them with cold water at least twice their volume. Leave to soak overnight.",
+        "Transfer the hummus to a bowl, cover the surface with plastic wrap, and let it rest for at least 30 minutes. If not using straightaway, refrigerate until needed. Make sure to take it out of the fridge at least 30 minutes before serving." .
+
+<https://www.epicurious.com/recipes/food/views/basic-hummus-ottolenghi/tags> a schema:ItemList ;
+    schema:itemListElement "Bean",
+        "Chickpea",
+        "Dairy Free",
+        "Dinner",
+        "Gluten Free",
+        "Nut Free",
+        "Peanut Free",
+        "Snack" .
+
+<https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/author0> a schema:Person ;
+    schema:name "Jason Wang" .
+
+<https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 1.654762e+02 ;
+    schema:calciumContentDV "12.72893846153846"^^xsd:float ;
+    schema:calories 1.542526e+03 ;
+    schema:caloriesDV "77.12630375"^^xsd:float ;
+    schema:carbohydrateContent 6.528629e+01 ;
+    schema:carbohydrateContentDV "23.740467636363633"^^xsd:float ;
+    schema:cholesterolContent 4.098774e+02 ;
+    schema:cholesterolContentDV "136.6258"^^xsd:float ;
+    schema:fatContent 1.087284e+02 ;
+    schema:fatContentDV "139.39543685897436"^^xsd:float ;
+    schema:fiberContent 4.25529e+00 ;
+    schema:fiberContentDV "15.197464285714284"^^xsd:float ;
+    schema:folicAcidContent 2.964375e+01 ;
+    schema:folicAcidContentDV "7.410937499999999"^^xsd:float ;
+    schema:ironContent 8.386234e+00 ;
+    schema:ironContentDV "46.59018888888889"^^xsd:float ;
+    schema:magnesiumContent 1.223726e+02 ;
+    schema:magnesiumContentDV "29.13633333333333"^^xsd:float ;
+    schema:monounsaturatedFatContent 2.823034e+01 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 1.980809e+01 ;
+    schema:niacinB3ContentDV "99.0404535"^^xsd:float ;
+    schema:phosphorusContent 7.893766e+02 ;
+    schema:phosphorusContentDV "63.15012599999999"^^xsd:float ;
+    schema:polyunsaturatedFatContent 2.389359e+01 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 1.304979e+03 ;
+    schema:potassiumContentDV "27.765505851063832"^^xsd:float ;
+    schema:proteinContent 7.511562e+01 ;
+    schema:proteinContentDV "150.23124199999995"^^xsd:float ;
+    schema:riboflavinB2Content 1.014647e+00 ;
+    schema:riboflavinB2ContentDV "78.04979615384615"^^xsd:float ;
+    schema:saturatedFatContent 2.226459e+01 ;
+    schema:saturatedFatContentDV "111.32295275"^^xsd:float ;
+    schema:sodiumContent 4.287673e+03 ;
+    schema:sodiumContentDV "186.4205804347826"^^xsd:float ;
+    schema:sugarContent 2.179237e+01 ;
+    schema:sugarContentDV "43.584742999999996"^^xsd:float ;
+    schema:thiaminB1Content 3.156202e-01 ;
+    schema:thiaminB1ContentDV "26.3016875"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 1.188183e+02 ;
+    schema:vitaminAContentDV "13.202033333333333"^^xsd:float ;
+    schema:vitaminB12Content 1.961009e+00 ;
+    schema:vitaminB12ContentDV "81.70871874999999"^^xsd:float ;
+    schema:vitaminB6Content 9.749939e-01 ;
+    schema:vitaminB6ContentDV "57.352579411764715"^^xsd:float ;
+    schema:vitaminCContent 1.543462e+01 ;
+    schema:vitaminCContentDV "17.14957777777778"^^xsd:float ;
+    schema:vitaminDContent 1.094875e-01 ;
+    schema:vitaminDContentDV "0.5474375000000001"^^xsd:float ;
+    schema:vitaminEContent 3.949542e+00 ;
+    schema:vitaminEContentDV "26.330280000000005"^^xsd:float ;
+    schema:vitaminKContent 1.345685e+02 ;
+    schema:vitaminKContentDV "112.14041041666667"^^xsd:float ;
+    schema:zincContent 7.307849e+00 ;
+    schema:zincContentDV "66.43499318181817"^^xsd:float .
+
+<https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 2.5e+00 .
+
+<https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/steps> a schema:ItemList ;
+    schema:itemListElement "Add the potatoes. Stir and cook for 5 more minutes. Add the sugar, the remaining 1⁄4 teaspoon white pepper powder, and the garlic. Stir and cook for 2 minutes.",
+        "In a large bowl, add the chicken, 1⁄4 teaspoon of the cooking wine, the cornstarch, and 1⁄4 teaspoon of the white pepper powder. Mix together with your hands.",
+        "In a large pot or wok, heat the vegetable oil over high heat. Dry off the soaked chile and add it to the pan, along with the star anise and Sichuan peppercorns. Fry until fragrant, up to 30 seconds. Strain out from oil and discard.",
+        "Meanwhile, pull and cook noodles according to directions and strain, reserving the water. Cook the cabbage or bok choy briefly in the noodle water. Strain out and place on top of the noodles. Toss with chicken mixture and remaining ingredients. Serve immediately.",
+        "Turn the heat down to medium and add the Pixian bean sauce, 2-inch green onion pieces, and ginger. Stir to combine. Turn the heat up to high before adding the chicken, longhorn pepper, bell pepper, and the remaining 1 tablespoon cooking wine. Stir-fry for 2 minutes. Add the soy sauce and 1 cup (240 ml) water. Stir and cook for 10 minutes.",
+        "With a sharp cleaver or chef’s knife, chop the chicken thighs into 2-inch (5 cm) cubes. You may remove the skin if you wish. Dab off excess liquid with paper towels." .
+
+<https://www.epicurious.com/recipes/food/views/concubines-chicken-with-longevity-noodles-xian-famous-foods/tags> a schema:ItemList ;
+    schema:itemListElement "Anise",
+        "Asian",
+        "Bell Pepper",
+        "Chicken",
+        "Chili Pepper",
+        "Chinese",
+        "Dairy Free",
+        "Dinner",
+        "Ginger",
+        "Lunar New Year",
+        "Lunch",
+        "Nut Free",
+        "Peanut Free",
+        "Potato",
+        "Soy Sauce",
+        "Stir-Fry",
+        "Wok" .
+
+<https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/author0> a schema:Person ;
+    schema:name "Tom Parker Bowles" .
+
+<https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 3.612e+00 ;
+    schema:calciumContentDV "0.27784615384615385"^^xsd:float ;
+    schema:calories 2.775568e+03 ;
+    schema:caloriesDV "138.77839999999998"^^xsd:float ;
+    schema:carbohydrateContent 2.370438e+02 ;
+    schema:carbohydrateContentDV "86.19774545454547"^^xsd:float ;
+    schema:cholesterolContent 5.136e+02 ;
+    schema:cholesterolContentDV "171.2"^^xsd:float ;
+    schema:fatContent 1.932217e+02 ;
+    schema:fatContentDV "247.7201282051282"^^xsd:float ;
+    schema:fiberContent 7.3808e+00 ;
+    schema:fiberContentDV "26.359999999999996"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 5.7936e+00 ;
+    schema:ironContentDV "32.18666666666666"^^xsd:float ;
+    schema:magnesiumContent 2.73e+00 ;
+    schema:magnesiumContentDV "0.65"^^xsd:float ;
+    schema:monounsaturatedFatContent 3.78e-01 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 6.42582e+00 ;
+    schema:niacinB3ContentDV "32.1291"^^xsd:float ;
+    schema:phosphorusContent 5.418e+00 ;
+    schema:phosphorusContentDV "0.43344000000000005"^^xsd:float ;
+    schema:polyunsaturatedFatContent 1.2222e-01 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 6.594e+00 ;
+    schema:potassiumContentDV "0.14029787234042554"^^xsd:float ;
+    schema:proteinContent 1.6189e+01 ;
+    schema:proteinContentDV "32.378"^^xsd:float ;
+    schema:riboflavinB2Content 5.52294e-01 ;
+    schema:riboflavinB2ContentDV "42.484153846153845"^^xsd:float ;
+    schema:saturatedFatContent 1.203872e+02 ;
+    schema:saturatedFatContentDV "601.93615"^^xsd:float ;
+    schema:sodiumContent 4.600689e+03 ;
+    schema:sodiumContentDV "200.02995652173917"^^xsd:float ;
+    schema:sugarContent 1.404362e+02 ;
+    schema:sugarContentDV "280.87239999999997"^^xsd:float ;
+    schema:thiaminB1Content 1.722e-03 ;
+    schema:thiaminB1ContentDV "0.14350000000000002"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 0e+00 ;
+    schema:vitaminAContentDV "0.0"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 7.56e-04 ;
+    schema:vitaminB6ContentDV "0.044470588235294116"^^xsd:float ;
+    schema:vitaminCContent 2.1e-03 ;
+    schema:vitaminCContentDV "0.0023333333333333335"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 2.835e-01 ;
+    schema:vitaminEContentDV "1.8900000000000003"^^xsd:float ;
+    schema:vitaminKContent 0e+00 ;
+    schema:vitaminKContentDV "0.0"^^xsd:float ;
+    schema:zincContent 3.108e-02 ;
+    schema:zincContentDV "0.28254545454545454"^^xsd:float .
+
+<https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 0e+00 .
+
+<https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/steps> a schema:ItemList ;
+    schema:itemListElement "Meanwhile, put the butter and powdered sugar for the filling into the bowl of a stand mixer fitted with a paddle attachment. Beat until smooth, then add the vanilla paste and beat again. Scrape down the sides and continue to mix until the vanilla is incorporated. Use a spatula to transfer the mixture to a disposable piping bag. Cut a ½ cm hole in the pointed end of the piping bag and pipe spirals of the icing on 10 of the biscuits, leaving ½cm between the filling and the outside edge of the biscuit. Carefully place an un-iced biscuit on top of an iced one and repeat with the remaining iced and un-iced biscuits – there will be 10 filled custard creams in total.",
+        "Remove the dough from the fridge 15 minutes before rolling it out, and preheat the oven to 325°F/170°C/150°C fan/Gas Mark 3. Use a rolling pin to roll the dough out to roughly ⅛-inch/3mm thick. Use a 6cm pastry cutter to cut 20 rounds from the dough, and transfer the rounds to two baking sheets lined with baking parchment, leaving 1cm between the rounds. Bake the biscuits for 10 minutes. They will look slightly golden, but it’s important that they don’t take on much colour. Allow the biscuits to cool on the sheets for a couple of minutes, then carefully transfer them to a wire rack to cool completely.",
+        "Sift the flour, custard powder, powdered sugar, and baking soda into the mixing bowl of a stand mixer fitted with a paddle attachment. Slowly add the butter, one cube at a time. Scrape down the sides of the bowl from time to time and continue to mix until a smooth dough is formed.",
+        "Store in an airtight container in a cool spot for up to 5 days." .
+
+<https://www.epicurious.com/recipes/food/views/custard-creams-sandwich-cookie-fortnum-mason-tom-parker-bowles/tags> a schema:ItemList ;
+    schema:itemListElement "British",
+        "Butter",
+        "Cake",
+        "Cookies",
+        "Dessert",
+        "English",
+        "HarperCollins",
+        "Kid-Friendly",
+        "Mixer",
+        "Mustard",
+        "Nut Free",
+        "Peanut Free",
+        "Snack",
+        "Vanilla",
+        "Vegetarian" .
+
+<https://www.epicurious.com/recipes/food/views/fudgy-brownies/author0> a schema:Person ;
+    schema:name "Melissa Weller" .
+
+<https://www.epicurious.com/recipes/food/views/fudgy-brownies/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 2.09731e+02 ;
+    schema:calciumContentDV "16.133153846153846"^^xsd:float ;
+    schema:calories 2.022068e+03 ;
+    schema:caloriesDV "101.1034"^^xsd:float ;
+    schema:carbohydrateContent 3.042625e+02 ;
+    schema:carbohydrateContentDV "110.64091636363638"^^xsd:float ;
+    schema:cholesterolContent 2.43104e+02 ;
+    schema:cholesterolContentDV "81.03466666666667"^^xsd:float ;
+    schema:fatContent 9.04331e+01 ;
+    schema:fatContentDV "115.93987179487178"^^xsd:float ;
+    schema:fiberContent 2.8507e+00 ;
+    schema:fiberContentDV "10.181071428571428"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 3.79863e+00 ;
+    schema:ironContentDV "21.1035"^^xsd:float ;
+    schema:magnesiumContent 9.088e+00 ;
+    schema:magnesiumContentDV "2.1638095238095243"^^xsd:float ;
+    schema:monounsaturatedFatContent 6.82743e-01 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 3.890009e+00 ;
+    schema:niacinB3ContentDV "19.450045"^^xsd:float ;
+    schema:phosphorusContent 1.5449e+01 ;
+    schema:phosphorusContentDV "1.2359200000000001"^^xsd:float ;
+    schema:polyunsaturatedFatContent 2.78419e-01 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 9.0114e+01 ;
+    schema:potassiumContentDV "1.9173191489361703"^^xsd:float ;
+    schema:proteinContent 8.00464e+00 ;
+    schema:proteinContentDV "16.00928"^^xsd:float ;
+    schema:riboflavinB2Content 3.43399e-01 ;
+    schema:riboflavinB2ContentDV "26.41530769230769"^^xsd:float ;
+    schema:saturatedFatContent 5.692001e+01 ;
+    schema:saturatedFatContentDV "284.600055"^^xsd:float ;
+    schema:sodiumContent 8.7673e+01 ;
+    schema:sodiumContentDV "3.811869565217392"^^xsd:float ;
+    schema:sugarContent 3.28284e+00 ;
+    schema:sugarContentDV "6.56568"^^xsd:float ;
+    schema:thiaminB1Content 3.65e-03 ;
+    schema:thiaminB1ContentDV "0.3041666666666667"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 1.0206e+02 ;
+    schema:vitaminAContentDV "11.340000000000002"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 1.25e-03 ;
+    schema:vitaminB6ContentDV "0.0735294117647059"^^xsd:float ;
+    schema:vitaminCContent 0e+00 ;
+    schema:vitaminCContentDV "0.0"^^xsd:float ;
+    schema:vitaminDContent 1.134e+00 ;
+    schema:vitaminDContentDV "5.670000000000001"^^xsd:float ;
+    schema:vitaminEContent 3.1752e+00 ;
+    schema:vitaminEContentDV "21.168"^^xsd:float ;
+    schema:vitaminKContent 0e+00 ;
+    schema:vitaminKContentDV "0.0"^^xsd:float ;
+    schema:zincContent 1.1322e-01 ;
+    schema:zincContentDV "1.0292727272727276"^^xsd:float .
+
+<https://www.epicurious.com/recipes/food/views/fudgy-brownies/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 3.75e+00 .
+
+<https://www.epicurious.com/recipes/food/views/fudgy-brownies/steps> a schema:ItemList ;
+    schema:itemListElement "Arrange the oven racks so one is in the center position. Preheat the oven to 400°F.",
+        "Place the brownies on the center rack of the oven and bake for 20 minutes, rotating the pan from front to back halfway through the baking. Remove the brownies from the oven and cool on a cooling rack. The tops will appear dry, but the insides will remain fudgy if you poke the center with a toothpick or cake tester. Holding the sides of the parchment paper, lift the brownies out of the pan and place them on a cutting board. Using a large knife, cut the brownies into 16 equal pieces.",
+        "Pour 1 to 2 inches of water into the bottom of a small saucepan and choose a bowl that fits over the saucepan to make a double boiler. Make sure the water is not touching the bottom of the bowl; if it is, pour some water out. Bring the water to a boil over high heat, then reduce the heat to medium-low to maintain a gentle simmer.",
+        "Remove the bowl from the double boiler and wipe the bottom of the bowl so no water drips. Add the sugar, vanilla, and salt and whisk them in. Add the eggs one at a time and whisk until the batter is shiny and smooth, 1 to 2 minutes. Add the flour and stir with a rubber spatula until no flour is visible.",
+        "Spray the bottom and sides of an 8-inch square baking pan with nonstick cooking spray. Cut a piece of parchment paper 8 inches wide and 15 to 16 inches long. Lay the paper in the pan so it travels up and over two of the sides. Spray the paper with nonstick cooking spray.",
+        "Store the brownies in an airtight container at room temperature for up to 1 week or freeze for up to 3 months.",
+        "Unless you are using chocolate chips, roughly chop the chocolate. Put the butter and chocolate into the bowl of the double boiler and melt them, using a heat-proof rubber spatula to stir and scrape down the sides of the bowl so the chocolate doesn’t burn.",
+        "Using a rubber spatula, transfer the batter to the prepared pan. Use the spatula to smooth out the top of the batter." .
+
+<https://www.epicurious.com/recipes/food/views/fudgy-brownies/tags> a schema:ItemList ;
+    schema:itemListElement "Brownie",
+        "Cake",
+        "Chocolate",
+        "Dessert" .
+
+<https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/author0> a schema:Person ;
+    schema:name "Michelle Polzine" .
+
+<https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 3.094068e+02 ;
+    schema:calciumContentDV "23.800523076923074"^^xsd:float ;
+    schema:calories 6.681214e+03 ;
+    schema:caloriesDV "334.06068875"^^xsd:float ;
+    schema:carbohydrateContent 1.211957e+03 ;
+    schema:carbohydrateContentDV "440.7116121818182"^^xsd:float ;
+    schema:cholesterolContent 4.85352e+02 ;
+    schema:cholesterolContentDV "161.78400000000002"^^xsd:float ;
+    schema:fatContent 1.782796e+02 ;
+    schema:fatContentDV "228.56357692307694"^^xsd:float ;
+    schema:fiberContent 2.160858e+01 ;
+    schema:fiberContentDV "77.17350892857144"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 3.125946e+01 ;
+    schema:ironContentDV "173.66366666666667"^^xsd:float ;
+    schema:magnesiumContent 3.944e-01 ;
+    schema:magnesiumContentDV "0.0939047619047619"^^xsd:float ;
+    schema:monounsaturatedFatContent 5.423e-04 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 3.468311e+01 ;
+    schema:niacinB3ContentDV "173.41554625000003"^^xsd:float ;
+    schema:phosphorusContent 7.888e-01 ;
+    schema:phosphorusContentDV "0.063104"^^xsd:float ;
+    schema:polyunsaturatedFatContent 4.3877e-03 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 6.8034e+00 ;
+    schema:potassiumContentDV "0.1447531914893617"^^xsd:float ;
+    schema:proteinContent 6.511648e+01 ;
+    schema:proteinContentDV "130.23296000000002"^^xsd:float ;
+    schema:riboflavinB2Content 2.948306e+00 ;
+    schema:riboflavinB2ContentDV "226.7927634615385"^^xsd:float ;
+    schema:saturatedFatContent 1.134019e+02 ;
+    schema:saturatedFatContentDV "567.0096135"^^xsd:float ;
+    schema:sodiumContent 1.603349e+03 ;
+    schema:sodiumContentDV "69.71080869565218"^^xsd:float ;
+    schema:sugarContent 7.33458e+02 ;
+    schema:sugarContentDV "1466.9159585"^^xsd:float ;
+    schema:thiaminB1Content 1.972e-03 ;
+    schema:thiaminB1ContentDV "0.16433333333333333"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 4.93e-02 ;
+    schema:vitaminAContentDV "0.005477777777777777"^^xsd:float ;
+    schema:vitaminB12Content 0e+00 ;
+    schema:vitaminB12ContentDV "0.0"^^xsd:float ;
+    schema:vitaminB6Content 3.944e-03 ;
+    schema:vitaminB6ContentDV "0.232"^^xsd:float ;
+    schema:vitaminCContent 2.6129e+00 ;
+    schema:vitaminCContentDV "2.903222222222222"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 7.395e-03 ;
+    schema:vitaminEContentDV "0.0493"^^xsd:float ;
+    schema:vitaminKContent 0e+00 ;
+    schema:vitaminKContentDV "0.0"^^xsd:float ;
+    schema:zincContent 2.958e-03 ;
+    schema:zincContentDV "0.026890909090909087"^^xsd:float .
+
+<https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 5e+00 .
+
+<https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/steps> a schema:ItemList ;
+    schema:itemListElement "In a medium bowl, whisk together the flour, baking powder, and cardamom. In another bowl, combine the sugar and lemon zest, rubbing the zest into the sugar to perfume it.",
+        "In the bowl of a stand mixer fitted with the paddle attachment (or in a large bowl, using a handheld mixer), cream the butter on high speed until fluffy. Add the lemon sugar and salt and continue beating until light and fluffy. Reduce the speed to low and add the egg yolks one at a time, mixing after each addition, then add the dry ingredients and mix until fully combined.",
+        "Preheat the oven to 350°F (175°C). Line a quarter sheet pan with parchment.",
+        "Transfer to the oven and bake until the top is golden brown, 35 to 40 minutes. Let cool completely, then cut into 40 little bars. The cookies will keep in an airtight container for up to a week; baked cookies can also be frozen for up to a month.",
+        "Turn the dough out and divide into 2 equal pieces. Wrap each piece in plastic wrap and place in the freezer for at least 30 minutes. (The dough can be frozen for up to a month.)",
+        "Using the large holes on a box grater, grate one piece of the dough onto the prepared pan and spread lightly into an even layer (don’t press it down into the pan). With an offset spatula, spread the jam evenly over the grated dough. Grate the remaining block of dough, then scatter the grated dough evenly over the jam layer; don’t press down." .
+
+<https://www.epicurious.com/recipes/food/views/grated-shortbread-bars-with-rose-jam/tags> a schema:ItemList ;
+    schema:itemListElement "Butter",
+        "Cake",
+        "Cardamom",
+        "Christmas",
+        "Cookies",
+        "Dessert",
+        "Eastern European",
+        "Egg",
+        "Hanukkah",
+        "Jelly",
+        "Kid-Friendly",
+        "Lemon",
+        "Nut Free",
+        "Peanut Free",
+        "Vegetarian",
+        "Winter" .
+
+<https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/author0> a schema:Person ;
+    schema:name "Jeremy Pang" .
+
+<https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 1.404283e+02 ;
+    schema:calciumContentDV "10.802176923076924"^^xsd:float ;
+    schema:calories 4.474535e+02 ;
+    schema:caloriesDV "22.372674999999997"^^xsd:float ;
+    schema:carbohydrateContent 2.753485e+01 ;
+    schema:carbohydrateContentDV "10.012671636363638"^^xsd:float ;
+    schema:cholesterolContent 1.1e+00 ;
+    schema:cholesterolContentDV "0.3666666666666667"^^xsd:float ;
+    schema:fatContent 3.737127e+01 ;
+    schema:fatContentDV "47.91188846153847"^^xsd:float ;
+    schema:fiberContent 3.18346e+00 ;
+    schema:fiberContentDV "11.3695"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 1.644159e+00 ;
+    schema:ironContentDV "9.134216666666667"^^xsd:float ;
+    schema:magnesiumContent 4.85998e+01 ;
+    schema:magnesiumContentDV "11.571380952380952"^^xsd:float ;
+    schema:monounsaturatedFatContent 3.526303e+00 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 8.57596e-01 ;
+    schema:niacinB3ContentDV "4.28798"^^xsd:float ;
+    schema:phosphorusContent 1.36659e+02 ;
+    schema:phosphorusContentDV "10.93272"^^xsd:float ;
+    schema:polyunsaturatedFatContent 3.084831e+00 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 2.775877e+02 ;
+    schema:potassiumContentDV "5.906121276595745"^^xsd:float ;
+    schema:proteinContent 5.528776e+00 ;
+    schema:proteinContentDV "11.057552000000001"^^xsd:float ;
+    schema:riboflavinB2Content 1.841507e-01 ;
+    schema:riboflavinB2ContentDV "14.165438461538463"^^xsd:float ;
+    schema:saturatedFatContent 4.96096e+00 ;
+    schema:saturatedFatContentDV "24.804800499999995"^^xsd:float ;
+    schema:sodiumContent 2.073655e+03 ;
+    schema:sodiumContentDV "90.15891304347828"^^xsd:float ;
+    schema:sugarContent 1.131686e+01 ;
+    schema:sugarContentDV "22.63372"^^xsd:float ;
+    schema:thiaminB1Content 1.319167e-01 ;
+    schema:thiaminB1ContentDV "10.993058333333334"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 7.068e+01 ;
+    schema:vitaminAContentDV "7.853333333333334"^^xsd:float ;
+    schema:vitaminB12Content 3.16298e-01 ;
+    schema:vitaminB12ContentDV "13.179083333333336"^^xsd:float ;
+    schema:vitaminB6Content 2.08012e-01 ;
+    schema:vitaminB6ContentDV "12.235999999999999"^^xsd:float ;
+    schema:vitaminCContent 7.74178e+00 ;
+    schema:vitaminCContentDV "8.601977777777778"^^xsd:float ;
+    schema:vitaminDContent 4.95e-01 ;
+    schema:vitaminDContentDV "2.475"^^xsd:float ;
+    schema:vitaminEContent 2.349e-01 ;
+    schema:vitaminEContentDV "1.566"^^xsd:float ;
+    schema:vitaminKContent 3.0356e+00 ;
+    schema:vitaminKContentDV "2.5296666666666665"^^xsd:float ;
+    schema:zincContent 8.43995e-01 ;
+    schema:zincContentDV "7.672681818181817"^^xsd:float .
+
+<https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 5e+00 .
+
+<https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/steps> a schema:ItemList ;
+    schema:itemListElement "Dab a little water all around the edge of the pastry, then fold the top of the pastry over the filling until it meets the bottom edge and press down, closing the edges of the pastry to make a half-moon shape.",
+        "Do the same with the rest of the pastries and filling.",
+        "Fill a large pot or wok with water, add a pinch of salt and bring to the boil. Gently add your dumplings and boil for 3–4 minutes, or until they begin to float to the surface, signaling they are cooked. Remove using a spider or slotted spoon and serve with the following dipping sauce.",
+        "Finely chop the pak choi, kale, garlic, ginger, spring onion (scallion) and coriander (cilantro) and place in a large mixing bowl, then add the minced pork and the marinade ingredients and mix well.",
+        "First, roll a third of the rested dough into a long cylinder, roughly 1.5cm (⅝ inch) thick, keeping the remainder of the dough covered so it doesn’t dry out. Cut the cylinder into 1cm (½ inch) chunks.",
+        "However, if you are now thinking you are closer to becoming a dumpling maverick, the traditional way to roll a round dumpling pastry is to roll each and every piece of dough into an individual sheet. This is usually done with a specific dim sum rolling pin, a thin wooden stick that looks very much like the end of a broom, and sometimes even thinner.",
+        "If you are inclined to become a true dim sum master, here’s how to practice the right movement:",
+        "Lastly, overlap the 2 top corners of the fat cat shaped pastry together and stick together with another dab of water, pinching together tightly.",
+        "Note: If making the dough itself is as adventurous as you want to be for now (or if you’re just too hungry to have patience), rolling out the dough into 2 or 3 large pieces, as thin as possible, and taking a 7cm (2¾ inch) square or round biscuit cutter (depending on the recipe and the shape you would like to fold) to it is the best way forward.",
+        "Now, holding the side edges of the pastry, with the half-moon still pointing downwards, pull the 2 edges (cat ears) upwards to meet in the middle, creating a ‘fat cat’ shape.",
+        "Once you have a smooth dough, form it into a ball, scraping the dough off the sides of the mixing bowl. Rub with a little oil, put it back into the bowl, then cover with a damp tea towel and allow to rest for 10 minutes.",
+        "Put the flour, tapioca flour and salt into a large mixing bowl. Using a spatula or a wooden spoon, gradually mix in the boiling water, until all the flour has come away from the sides of the bowl. Lastly, add the oil, then start to knead the dough well by hand for 5 minutes. Alternatively, you can use an electric dough mixer fitted with a dough hook attachment; start on a low speed for the first minute or so, then knead well on a high speed for 2–3 minutes.",
+        "Roll each piece of dough into a small ball and set aside. Before rolling each individual piece, dust the work surface with a good amount of plain flour (all-purpose flour) or medium-gluten wheat flour. Take a piece of dough and push down on it with your palm to form a small circle. With the dough still resting on the floured surface, with your left or non-dominant hand, using your thumb and fingers underneath the edge of the dough, begin to turn the dough anti-clockwise, with the base of the pastry sitting on the surface at all times. (I use my middle finger as the ‘hub’ to the wheel of pastry.)",
+        "To make the fat cat fold, place one dumpling pastry flat on a clean surface. Place roughly 1 teaspoon of the marinated mix in the centre of the pastry.",
+        "While you are turning the pastry, using your right or dominant hand along with a small rolling pin, with a relevant amount of force roll inwards towards the centre of the forming circle, allowing your pressure to ease up when rolling outwards towards the edges of the circle. Turn the pastry anti-clockwise with your non-dominant hand and continue this rolling process, eventually forming a small circle with a slightly thicker hump of dough in the middle. This thickness will help to protect the filling from breaking through the thin pastry, keeping your dumpling perfectly intact." .
+
+<https://www.epicurious.com/recipes/food/views/pak-choi-and-kale-dumpling-hong-kong-diner-jeremy-pang/tags> a schema:ItemList ;
+    schema:itemListElement "Appetizer",
+        "Bok Choy",
+        "Chinese",
+        "Dinner",
+        "Green",
+        "Kale",
+        "Lunar New Year",
+        "Peanut Free",
+        "Pork",
+        "Snack" .
+
+<https://www.epicurious.com/recipes/food/views/salted-miso-brownies/author0> a schema:Person ;
+    schema:name "Meera Sodha" .
+
+<https://www.epicurious.com/recipes/food/views/salted-miso-brownies/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 3.143451e+02 ;
+    schema:calciumContentDV "24.180396153846154"^^xsd:float ;
+    schema:calories 4.980389e+03 ;
+    schema:caloriesDV "249.01944875"^^xsd:float ;
+    schema:carbohydrateContent 7.336872e+02 ;
+    schema:carbohydrateContentDV "266.79534727272727"^^xsd:float ;
+    schema:cholesterolContent 7.653e+00 ;
+    schema:cholesterolContentDV "2.551"^^xsd:float ;
+    schema:fatContent 2.2216e+02 ;
+    schema:fatContentDV "284.82053333333334"^^xsd:float ;
+    schema:fiberContent 3.625043e+01 ;
+    schema:fiberContentDV "129.46583928571428"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 4.615809e+01 ;
+    schema:ironContentDV "256.4338416666667"^^xsd:float ;
+    schema:magnesiumContent 7.511827e+02 ;
+    schema:magnesiumContentDV "178.85303095238095"^^xsd:float ;
+    schema:monounsaturatedFatContent 4.104293e+01 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 1.972683e+01 ;
+    schema:niacinB3ContentDV "98.634132"^^xsd:float ;
+    schema:phosphorusContent 1.255925e+03 ;
+    schema:phosphorusContentDV "100.474024"^^xsd:float ;
+    schema:polyunsaturatedFatContent 1.236688e+01 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 2.421968e+03 ;
+    schema:potassiumContentDV "51.53123723404256"^^xsd:float ;
+    schema:proteinContent 5.594255e+01 ;
+    schema:proteinContentDV "111.88508999999999"^^xsd:float ;
+    schema:riboflavinB2Content 1.398134e+00 ;
+    schema:riboflavinB2ContentDV "107.54874230769231"^^xsd:float ;
+    schema:saturatedFatContent 1.454557e+02 ;
+    schema:saturatedFatContentDV "727.2782649999999"^^xsd:float ;
+    schema:sodiumContent 3.433126e+03 ;
+    schema:sodiumContentDV "149.2663608695652"^^xsd:float ;
+    schema:sugarContent 4.787027e+02 ;
+    schema:sugarContentDV "957.4053850000003"^^xsd:float ;
+    schema:thiaminB1Content 2.701637e+00 ;
+    schema:thiaminB1ContentDV "225.13644166666666"^^xsd:float ;
+    schema:transFatContent 7.653e-02 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 7.1156e+00 ;
+    schema:vitaminAContentDV "0.7906222222222222"^^xsd:float ;
+    schema:vitaminB12Content 7.54552e-01 ;
+    schema:vitaminB12ContentDV "31.43966666666667"^^xsd:float ;
+    schema:vitaminB6Content 4.524758e-01 ;
+    schema:vitaminB6ContentDV "26.616220588235294"^^xsd:float ;
+    schema:vitaminCContent 1.2585e-01 ;
+    schema:vitaminCContentDV "0.13983333333333334"^^xsd:float ;
+    schema:vitaminDContent 0e+00 ;
+    schema:vitaminDContentDV "0.0"^^xsd:float ;
+    schema:vitaminEContent 1.684047e+00 ;
+    schema:vitaminEContentDV "11.226976666666667"^^xsd:float ;
+    schema:vitaminKContent 3.486785e+01 ;
+    schema:vitaminKContentDV "29.0565375"^^xsd:float ;
+    schema:zincContent 1.236608e+01 ;
+    schema:zincContentDV "112.41888181818184"^^xsd:float .
+
+<https://www.epicurious.com/recipes/food/views/salted-miso-brownies/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 1.25e+00 .
+
+<https://www.epicurious.com/recipes/food/views/salted-miso-brownies/steps> a schema:ItemList ;
+    schema:itemListElement "Place on the middle shelf of the oven for 45 minutes or until ﬁrm to the touch around the edges with a slight wobble in the middle, then remove. The brownies might be wobbly in the middle, but they will soon settle down and become deliciously fudgy. Leave to cool completely, then cut into 16 squares.",
+        "Place the coconut oil and broken chocolate in a medium-sized saucepan and set over a low heat. Stir occasionally until melted, then take off the heat. Mix in the sugar, ﬂour, and miso, and crumble in the salt ﬂakes. Finally, add the bloomed chia seeds and mix. Pour into the lined pan and gently shake to distribute the mixture.",
+        "Preheat the oven to 400°F and line an 8-inch x 8-inch cake pan with parchment paper. In a small bowl, mix the ground chia seeds with 1 cup plus 2 tbsp of water and set aside." .
+
+<https://www.epicurious.com/recipes/food/views/salted-miso-brownies/tags> a schema:ItemList ;
+    schema:itemListElement "Brownie",
+        "Cake",
+        "Chocolate",
+        "Dessert" .
+
+<https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/author0> a schema:Person ;
+    schema:name "Cheryl Slocum" .
+
+<https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/nutrition> a schema:NutritionInformation ;
+    schema:calciumContent 1.901709e+02 ;
+    schema:calciumContentDV "14.628528846153847"^^xsd:float ;
+    schema:calories 1.45165e+03 ;
+    schema:caloriesDV "72.58250999999998"^^xsd:float ;
+    schema:carbohydrateContent 2.00884e+02 ;
+    schema:carbohydrateContentDV "73.048732"^^xsd:float ;
+    schema:cholesterolContent 1.1332e+01 ;
+    schema:cholesterolContentDV "3.7773333333333334"^^xsd:float ;
+    schema:fatContent 6.910394e+01 ;
+    schema:fatContentDV "88.59480128205128"^^xsd:float ;
+    schema:fiberContent 1.151835e+01 ;
+    schema:fiberContentDV "41.136964285714285"^^xsd:float ;
+    schema:folicAcidContent 0e+00 ;
+    schema:folicAcidContentDV "0.0"^^xsd:float ;
+    schema:ironContent 9.06788e+00 ;
+    schema:ironContentDV "50.377111111111105"^^xsd:float ;
+    schema:magnesiumContent 2.146559e+02 ;
+    schema:magnesiumContentDV "51.108559523809525"^^xsd:float ;
+    schema:monounsaturatedFatContent 4.022763e+01 ;
+    schema:monounsaturatedFatContentDV "None"^^xsd:float ;
+    schema:niacinB3Content 6.377197e+00 ;
+    schema:niacinB3ContentDV "31.885982500000004"^^xsd:float ;
+    schema:phosphorusContent 4.378772e+02 ;
+    schema:phosphorusContentDV "35.030176000000004"^^xsd:float ;
+    schema:polyunsaturatedFatContent 1.394024e+01 ;
+    schema:polyunsaturatedFatContentDV "None"^^xsd:float ;
+    schema:potassiumContent 1.634393e+03 ;
+    schema:potassiumContentDV "34.77432074468085"^^xsd:float ;
+    schema:proteinContent 1.878055e+01 ;
+    schema:proteinContentDV "37.56109"^^xsd:float ;
+    schema:riboflavinB2Content 5.742955e-01 ;
+    schema:riboflavinB2ContentDV "44.176576923076915"^^xsd:float ;
+    schema:saturatedFatContent 1.152839e+01 ;
+    schema:saturatedFatContentDV "57.641949999999994"^^xsd:float ;
+    schema:sodiumContent 1.166466e+03 ;
+    schema:sodiumContentDV "50.715907608695645"^^xsd:float ;
+    schema:sugarContent 1.869152e+01 ;
+    schema:sugarContentDV "37.38304"^^xsd:float ;
+    schema:thiaminB1Content 5.828631e-01 ;
+    schema:thiaminB1ContentDV "48.57192291666666"^^xsd:float ;
+    schema:transFatContent 0e+00 ;
+    schema:transFatContentDV "None"^^xsd:float ;
+    schema:vitaminAContent 2.336295e+02 ;
+    schema:vitaminAContentDV "25.95883888888889"^^xsd:float ;
+    schema:vitaminB12Content 4.3e-03 ;
+    schema:vitaminB12ContentDV "0.17916666666666667"^^xsd:float ;
+    schema:vitaminB6Content 1.7381e+00 ;
+    schema:vitaminB6ContentDV "102.24117647058826"^^xsd:float ;
+    schema:vitaminCContent 5.603086e+01 ;
+    schema:vitaminCContentDV "62.25650833333333"^^xsd:float ;
+    schema:vitaminDContent 1.2e-02 ;
+    schema:vitaminDContentDV "0.060000000000000005"^^xsd:float ;
+    schema:vitaminEContent 7.21081e+00 ;
+    schema:vitaminEContentDV "48.07206666666667"^^xsd:float ;
+    schema:vitaminKContent 7.091352e+01 ;
+    schema:vitaminKContentDV "59.09460000000001"^^xsd:float ;
+    schema:zincContent 3.882545e+00 ;
+    schema:zincContentDV "35.295863636363634"^^xsd:float .
+
+<https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/rating> a schema:AggregateRating ;
+    schema:bestRating "5.0"^^xsd:float ;
+    schema:ratingValue 0e+00 .
+
+<https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/steps> a schema:ItemList ;
+    schema:itemListElement "Cook noodles in a medium pot of boiling water 6 minutes. Drain, reserving 3 Tbsp. noodle cooking liquid. Rinse noodles under cold running water. If noodles are very long, snip into about 6\" pieces with kitchen shears. Transfer to a large bowl.",
+        "Divide noodles among plates; scatter sweet potatoes over and drizzle with more sauce if desired. Top with basil and serve with lime wedges and more tamari alongside.",
+        "Meanwhile, whisk ginger, cashew butter, vinegar, sesame oil, remaining 1 Tbsp. plus 1½ tsp. tamari, and remaining 1 Tbsp. olive oil in a small bowl to combine. Set sauce aside.",
+        "Preheat oven to 375°. Toss sweet potatoes with 1 Tbsp. tamari and 1 Tbsp. olive oil in a 13x9\" baking dish to coat. Arrange potatoes in an even layer and cover with foil; bake 15 minutes. Uncover, stir, and roast until tender, 15–25 minutes more.",
+        "Whisk reserved noodle cooking liquid into reserve sauce, then add half of sauce to noodles; toss to coat." .
+
+<https://www.epicurious.com/recipes/food/views/sweet-potato-noodles-cashew-sesame-sauce/tags> a schema:ItemList ;
+    schema:itemListElement "Asian",
+        "Basil",
+        "Cashew",
+        "Crohn's & Colitis",
+        "Dairy Free",
+        "Dinner",
+        "Ginger",
+        "Gluten Free",
+        "Lime",
+        "Lunch",
+        "Noodle",
+        "Olive Oil",
+        "Sesame Oil",
+        "Sweet Potato",
+        "Vegan",
+        "Vegetarian",
+        "Vinegar" .
+
