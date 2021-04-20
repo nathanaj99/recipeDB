@@ -2,53 +2,57 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema: <http://schema.org/> .
+@prefix recipeDB: <http://recipedb.com/> .
 
 schema:Recipe a rdfs:Class ;
     rdfs:label schema:Text ;
-    schema:author schema:Person ;
-    schema:aggregateRating schema:AggregateRating ;
+    schema:author recipeDB:Author ;
+    schema:aggregateRating xsd:float ;
     schema:recipeIngredient schema:Text ;
     schema:recipeInstructions schema:ItemList ;
     schema:nutrition schema:NutritionInformation ;
     schema:healthScore xsd:Float ;
-    schema:tags schema:ItemList ;
+    schema:tags recipeDB:RecipeTag ;
     .
 
-schema:AggregateRating a rdfs:Class ;
-    schema:ratingValue schema:Number ;
-    schema:bestRating schema:Number ;
+recipeDB:Author a rdfs:Class ;
+    rdfs:label schema:Text
+    .
+
+recipeDB:RecipeTag a rdfs:Class ;
+    rdfs:label schema:Text
     .
 
 schema:NutritionInformation a rdfs:Class ;
-    schema:calories schema:Energy ;
-    schema:fatContent schema:Mass ;
-    schema:carbohydrateContent schema:Mass ;
-    schema:sugarContent schema:Mass ;
-    schema:proteinContent schema:Mass ;
-    schema:sodiumContent schema:Mass ;
-    schema:fiberContent schema:Mass ;
-    schema:saturatedFatContent schema:Mass ;
-    schema:transFatContent schema:Mass ;
-    schema:monounsaturatedFatContent schema:Mass ;
-    schema:polyunsaturatedFatContent schema:Mass ;
-    schema:cholesterolContent schema:Mass ;
-    schema:calciumContent schema:Mass ;
-    schema:magnesiumContent schema:Mass ;
-    schema:potassiumContent schema:Mass ;
-    schema:ironContent schema:Mass ;
-    schema:zincContent schema:Mass ;
-    schema:phosphorusContent schema:Mass ;
-    schema:vitaminAContent schema:Mass ;
-    schema:vitaminCContent schema:Mass ;
-    schema:thiaminB1Content schema:Mass ;
-    schema:riboflavinB2Content schema:Mass ;
-    schema:niacinB3Content schema:Mass ;
-    schema:vitaminB6Content schema:Mass ;
-    schema:folicAcidContent schema:Mass ;
-    schema:vitaminB12Content schema:Mass ;
-    schema:vitaminDContent schema:Mass ;
-    schema:vitaminEContent schema:Mass ;
-    schema:vitaminKContent schema:Mass ;
+    schema:calories xsd:float ;
+    schema:fatContent xsd:float ;
+    schema:carbohydrateContent xsd:float ;
+    schema:sugarContent xsd:float ;
+    schema:proteinContent xsd:float ;
+    schema:sodiumContent xsd:float ;
+    schema:fiberContent xsd:float ;
+    schema:saturatedFatContent xsd:float ;
+    schema:transFatContent xsd:float ;
+    schema:monounsaturatedFatContent xsd:float ;
+    schema:polyunsaturatedFatContent xsd:float ;
+    schema:cholesterolContent xsd:float ;
+    schema:calciumContent xsd:float ;
+    schema:magnesiumContent xsd:float ;
+    schema:potassiumContent xsd:float ;
+    schema:ironContent xsd:float ;
+    schema:zincContent xsd:float ;
+    schema:phosphorusContent xsd:float ;
+    schema:vitaminAContent xsd:float ;
+    schema:vitaminCContent xsd:float ;
+    schema:thiaminB1Content xsd:float ;
+    schema:riboflavinB2Content xsd:float ;
+    schema:niacinB3Content xsd:float ;
+    schema:vitaminB6Content xsd:float ;
+    schema:folicAcidContent xsd:float ;
+    schema:vitaminB12Content xsd:float ;
+    schema:vitaminDContent xsd:float ;
+    schema:vitaminEContent xsd:float ;
+    schema:vitaminKContent xsd:float ;
     schema:caloriesDV xsd:float ;
     schema:fatContentDV xsd:float ;
     schema:carbohydrateContentDV xsd:float ;
@@ -57,9 +61,6 @@ schema:NutritionInformation a rdfs:Class ;
     schema:sodiumContentDV xsd:float ;
     schema:fiberContentDV xsd:float ;
     schema:saturatedFatContentDV xsd:float ;
-    schema:transFatContentDV xsd:float ;
-    schema:monounsaturatedFatContentDV xsd:float ;
-    schema:polyunsaturatedFatContentDV xsd:float ;
     schema:cholesterolContentDV xsd:float ;
     schema:calciumContentDV xsd:float ;
     schema:magnesiumContentDV xsd:float ;
