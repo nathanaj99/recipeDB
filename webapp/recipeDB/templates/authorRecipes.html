@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+            
+<title>RecipeDB Home</title>
+<body>
+    <h1 style="display: inline; padding-left: 0%;">RecipeDB</h1><div style="float: right;"><a style="display: inline;" href="{{ url_for('search') }}">Search</a>&nbsp&nbsp<a style="display: inline;" href="{{ url_for('advanced_search') }}">Advanced Search</a></div>
+    {% if success=="success" %}
+        {% for r in result %}
+            <h2>Recipe Name:{{ r.get("n")["rdfs__label"][0] }}</h2>
+            <h3>Recipe URL:{{ r.get("n")["uri"] }}</h3>
+            <h3>Ingredients:</h3>
+            <ul>
+                {% for i in r.get("n")["sch__recipeIngredient"] %}
+                    <li>{{ i }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Instructions:</h3>
+            <ol>
+                {% for i in r.get("ins")["sch__itemListElement"] %}
+                    <li>{{ i }}</li>
+                {% endfor %}
+            </ol>
+            <h3>Rating:{{ r.get("n")["sch__aggregateRating"][0] }}/5</h3>
+            <h3>Health Score:{{ r.get("n")["sch__healthScore"][0] }}/10</h3>
+            <h3>Authors:</h3>
+            <ul>
+                {% for i in r.get("authors") %}
+                    <li><a href="{{ url_for('author_recipes', author=i) }}">{{ i }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

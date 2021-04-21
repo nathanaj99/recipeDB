@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<title>RecipeDB Search</title>
+
+<body>
+    <h1 style="display: inline; padding-left: 0%;">RecipeDB</h1><div style="float: right;"><a style="display: inline;" href="{{ url_for('search') }}">Search</a>&nbsp&nbsp<a style="display: inline;" href="{{ url_for('advanced_search') }}">Advanced Search</a></div>
+    <form action="{{ url_for('advanced_search') }}" method="POST">
+        <label for="search">Query:</label>
+        <input type="text" name="phrase" id="search"><br>
+        <label for="name">Condition:</label>
+        <input name="name" type="text" id="name" placeholder="Enter a condition" autocomplete="off">
+
+        <a href="#" id="btnAdd">Add</a>
+        <br>
+        <label for="list">Condition List:</label>
+        <select id="list" name="list" multiple>
+
+        </select>
+        <a href="#" id="btnRemove">Remove Selected Condition</a>
+    
+        <script>
+            const btnAdd = document.querySelector('#btnAdd');
+            const btnRemove = document.querySelector('#btnRemove');
+            const sb = document.querySelector('#list');
+            const name = document.querySelector('#name');
+    
+            btnAdd.onclick = (e) => {
+                e.preventDefault();
+    
+                // validate the option
+                if (name.value == '') {
+                    alert('Please enter the name.');
+                    return;
+                }
+                // create a new option
+                const option = new Option(name.value, name.value);
+                option.selected = true;
+                // add it to the list
+                sb.add(option, undefined);
+    
+                // reset the value of the input
+                name.value = '';
+                name.focus();
+            };
+            // remove selected option
+            btnRemove.onclick = (e) => {
+                e.preventDefault();
+    
+                // save the selected option
+                let selected = [];
+    
+                for (let i = 0; i < sb.options.length; i++) {
+                    selected[i] = sb.options[i].selected;
+                }
+    
+                // remove all selected option
+                let index = sb.options.length;
+                while (index--) {
+                    if (selected[index]) {
+                        sb.remove(index);
+                    }
+                }
+            };
+        </script>
+        <br>
+        <input type="submit"></input>
+    </form>
+    {% if success=="success" %}
+        {% for r in result %}
+            <h2>Recipe Name:{{ r.get("n")["rdfs__label"][0] }}</h2>
+            <h3>Recipe URL:{{ r.get("n")["uri"] }}</h3>
+            <h3>Ingredients:</h3>
+            <ul>
+                {% for i in r.get("n")["sch__recipeIngredient"] %}
+                    <li>{{ i }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Instructions:</h3>
+            <ol>
+                {% for i in r.get("ins")["sch__itemListElement"] %}
+                    <li>{{ i }}</li>
+                {% endfor %}
+            </ol>
+            <h3>Rating:{{ r.get("n")["sch__aggregateRating"][0] }}/5</h3>
+            <h3>Health Score:{{ r.get("n")["sch__healthScore"][0] }}/10</h3>
+        {% endfor %}
+    {% endif %}
+</body>
+<!-- <script>
+document.getElementById('generate').onclick = function() {
+ 
+ var values = ["sch__calories","sch__fatContent","sch__carbohydrateContent","sch__sugarContent","sch__proteinContent","sch__sodiumContent","sch__fiberContent","sch__saturatedFatContent","sch__transFatContent","sch__monounsaturatedFatContent","sch__polyunsaturatedFatContent","sch__cholesterolContent","sch__calciumContent","sch__magnesiumContent","sch__potassiumContent","sch__ironContent","sch__zincContent","sch__phosphorusContent","sch__vitaminAContent","sch__vitaminCContent","sch__thiaminB1Content","sch__riboflavinB2Content","sch__niacinB3Content","sch__vitaminB6Content","sch__folicAcidContent","sch__vitaminB12Content","sch__vitaminDContent","sch__vitaminEContent","sch__vitaminKContent"];
+
+ var select = document.createElement("select");
+ select.name = "pets";
+ select.id = "pets"
+
+ for (const val of values)
+ {
+     var option = document.createElement("option");
+     option.value = val;
+     if (val.includes("Content")) {
+        option.text = val.slice(5,-7);
+        }
+        else {
+            option.text = val.slice(5);
+        }
+            
+     select.appendChild(option);
+ }
+
+ var label = document.createElement("label");
+ label.innerHTML = "Choose your pets: "
+ label.htmlFor = "pets";
+
+ document.getElementById("container").appendChild(label).appendChild(select);
+ var select2 = document.createElement("select");
+ select2.name = "quant";
+ select2.id = "quant";
+ 
+}
+</script> -->
+</html>
