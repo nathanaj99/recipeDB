@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 import uuid
 
-recipe_graph = Graph("bolt://localhost:7687/neo4j", password="Voltrox19")
+recipe_graph = Graph("bolt://localhost:7687/neo4j", password="recipeDB")
 
 def get25Recipes():
     query = """
@@ -38,7 +38,7 @@ def recipe_backward_search(list_ingredients):
     query += '(size([ingredient IN n.sch__recipeIngredient WHERE toLower(ingredient) =~ ".*' + list_ingredients[-1].lower().strip() + '.*"]) > 0) '
     query += 'RETURN n, COLLECT(a) AS a'
 
-
+    return recipe_graph.run(query)
 
 def specific_recipe_query(uri):
     query = """

@@ -48,8 +48,9 @@ def advanced_search():
 def backwards_ingredient():
     if request.method=="POST":
         d = request.form
-        options = d.getlist("list")
-        query = recipe_backward_search(options)
+        options = d.get("list")
+        options = options[:-1].split(",")
+        result = recipe_backward_search(options)
         return render_template(
             'backwardsIngredient.html',
             result = result,
