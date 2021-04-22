@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+    <a class="col-7 mt-4 mb-4" href="{{url_for('index') }}"><h1>RecipeDB</h1> </a>
+        <a class="col-1 mt-4 mb-4" href="{{ url_for('search') }}">Search</a>
+        <a class="col-2 mt-4 mb-4" href="{{ url_for('advanced_search') }}">Advanced Search</a>
+        <a class="col-2 mt-4 mb-4" href="{{ url_for('backwards_ingredient') }}">Find via Ingredient</a>
+    </div>
+</div>
+
+        <div class="container-fluid">
+    {% if success=="success" %}
+        {% if result|length > 0 %}
+            <h1> {{ result[0].get("n")["rdfs__label"][0] }} </h1>
+            <a> Link to website: {{ result[0].get("n")["uri"] }} </a>
+                <span>By </span>
+                    {% for i in result[0].get("a"): %}
+                <span> {{ i["rdfs__label"][0] }}, </span>
+                    {% endfor %}
+                <div>
+                Rating: <b> {{ result[0].get("n")["sch__aggregateRating"][0] }} </b> /5
+                </div>
+                <div>
+                <span>Health Score: <b> {{ result[0].get("n")["sch__healthScore"][0] }} </b> /10</span>
+                </div>
+        {% endif %}
+    {% endif %}
+            </div>
+
+</body>
+</html>

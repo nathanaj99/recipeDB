@@ -1,5 +1,5 @@
 from flask import Flask, request, session, redirect, url_for, render_template, flash
-from .models import get25Recipes, search_recipes, recipes_by_author
+from .models import get25Recipes, search_recipes2, recipes_by_author, specific_recipe_query, recipe_backward_search
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def search():
     if request.method == "POST":
         details = request.form
         phrase = details["phrase"]
-        recipes = search_recipes(phrase)
+        recipes = search_recipes2(phrase)
 
         return render_template(
             'search.html',
@@ -43,6 +43,28 @@ def advanced_search():
             success = "success"
         )
     return render_template('advancedSearch.html')
+
+@app.route('/backwards_ingredient', methods=['GET','POST'])
+def backwards_ingredient():
+    if request.method=="POST":
+        d = request.form
+        options = d.getlist("list")
+        query = recipe_backward_search(options)
+        return render_template(
+            'backwardsIngredient.html',
+            result = result,
+            success = "success"
+        )
+    return render_template('backwardsIngredient.html')
+
+@app.route('/recipe/<recipe_id>', methods=['GET','POST'])
+def specific_recipe(recipe_id):
+    result = specific_recipe_query(recipe_id)
+    return render_template(
+        'recipe.html',
+        result=result.data(),
+        success='success'
+    )
 
 @app.route('/author_recipes/<author>', methods=['GET','POST'])
 def author_recipes(author):

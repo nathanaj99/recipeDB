@@ -4,9 +4,7 @@ import re
 import time
 from unicodedata import numeric
 from fractions import Fraction
-import numpy as np
-from scipy.stats import norm
-import matplotlib.pyplot as plt
+
 
 rc = recipeconverter.RecipeConverter()
 
