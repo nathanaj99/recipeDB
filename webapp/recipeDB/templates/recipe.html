@@ -9,6 +9,137 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Title</title>
+    <style>
+<!--body {-->
+<!--  font-size: small;-->
+<!--  line-height: 1.4;-->
+<!--}-->
+<!--p {-->
+<!--  margin: 0;-->
+<!--}-->
+
+.performance-facts {
+  border: 1px solid black;
+  font-size: small;
+  line-height:1.4;
+  margin: 20px;
+  margin-left: 40%;
+  float: left;
+  width: 350px;
+  padding: 0.5rem;
+  table {
+    border-collapse: collapse;
+  }
+}
+.performance-facts__title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
+}
+.performance-facts__header {
+  border-bottom: 10px solid black;
+  padding: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0;
+  p {
+    margin: 0;
+  }
+}
+.performance-facts__table {
+  width: 100%;
+  thead tr {
+    th,
+    td {
+      border: 0;
+    }
+  }
+  th,
+  td {
+    font-weight: normal;
+    text-align: left;
+    padding: 0.25rem 0;
+    border-top: 1px solid black;
+    white-space: nowrap;
+  }
+  td {
+    &:last-child {
+      text-align: right;
+    }
+  }
+  .blank-cell {
+    width: 1rem;
+    border-top: 0;
+    margin-right: 5px;
+  }
+  .thick-row {
+    th,
+    td {
+      border-top-width: 5px;
+    }
+  }
+}
+.small-info {
+  font-size: 0.7rem;
+}
+
+.performance-facts__table--small {
+  @extend .performance-facts__table;
+  border-bottom: 1px solid #999;
+  margin: 0 0 0.5rem 0;
+  thead {
+    tr {
+      border-bottom: 1px solid black;
+    }
+  }
+  td {
+    &:last-child {
+      text-align: left;
+    }
+  }
+  th,
+  td {
+    border: 0;
+    padding: 0;
+  }
+}
+
+.performance-facts__table--grid {
+  @extend .performance-facts__table;
+  margin: 0 0 0.5rem 0;
+  td {
+    &:last-child {
+      text-align: left;
+      &::before {
+        content: "•";
+        font-weight: bold;
+        margin: 0 0.25rem 0 0;
+      }
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.thick-end {
+  border-bottom: 10px solid black;
+}
+.thin-end {
+  border-bottom: 1px solid black;
+}
+.alignRight {
+  text-align: right;
+}
+
+ul.no-bullets {
+  list-style-type: none;
+  padding-left: 10px;
+  }
+
+.space {
+    height: 15px;
+}
+
+    </style>
 </head>
 <body>
 <div class="container">
@@ -20,24 +151,341 @@
     </div>
 </div>
 
-        <div class="container-fluid">
+        <div class="container">
     {% if success=="success" %}
         {% if result|length > 0 %}
-            <h1> {{ result[0].get("n")["rdfs__label"][0] }} </h1>
-            <a> Link to website: {{ result[0].get("n")["uri"] }} </a>
-                <span>By </span>
-                    {% for i in result[0].get("a"): %}
-                <span> {{ i["rdfs__label"][0] }}, </span>
+            {% set r = result[0] %}
+            <a href="{{ r.get('n')['uri'] }}" target="_blank"><h2> {{ r.get("n")["rdfs__label"][0] }} </h2> </a>
+                    {% set authors = [] %}
+                    {% for i in r.get("a"): %}
+                        {{ authors.append(i["rdfs__label"][0])|default("", True) }}
                     {% endfor %}
+                <h5> By {{ authors|join(', ') }}</h5>
                 <div>
-                Rating: <b> {{ result[0].get("n")["sch__aggregateRating"][0] }} </b> /5
+                Rating: <b> {{ r.get("n")["sch__aggregateRating"][0] }} </b> / 5
                 </div>
                 <div>
-                <span>Health Score: <b> {{ result[0].get("n")["sch__healthScore"][0] }} </b> /10</span>
+                <span>Health Score: <b> {{ r.get("n")["sch__healthScore"][0] }} </b> / 10</span>
                 </div>
-        {% endif %}
-    {% endif %}
+
             </div>
+
+<!-- Display tags-->
+        <div class="container">
+            <b>Tags</b>
+            <div class="row">
+                {% for i in r.get("t"): %}
+                <a class="col col-sm-4 col-md-3 col-lg-2"> {{ i["rdfs__label"][0] }}</a>
+                {%endfor%}
+            </div>
+            </div>
+        </div>
+
+<div class="space">
+
+</div>
+
+<!-- /nutrition-label -->
+<!-- Display ingredients -->
+<div class="container">
+    <div class="row">
+        <div class="col-5"><b> Ingredients </b>
+            <ul class="no-bullets">
+            {% for i in r.get("n")["sch__recipeIngredient"]: %}
+                <li> {{i}} </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-7">
+            <b> Instructions </b>
+        <ol>
+            {% for i in r.get("ins")["sch__itemListElement"]: %}
+            <li> {{i}} </li>
+            {% endfor %}
+        </ol>
+        </div>
+    </div>
+</div>
+
+
+<!-- Display steps -->
+    <div class="container">
+
+    </div>
+
+
+
+<!--Nutrition Label-->
+<!-- Display nutritional information -->
+<div class="container performance-facts">
+  <header class="performance-facts__header">
+    <h1 class="performance-facts__title">Nutrition Facts</h1>
+      <p>Serving Size: Entire Recipe </p>
+<!--      <p>Serving Per Container 8</p>-->
+  </header>
+  <table class="performance-facts__table">
+    <thead>
+      <tr style="border-bottom:1px solid black">
+        <th colspan="3" class="small-info">
+          Amount Per Serving
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid black">
+        <th colspan="2">
+          <b>Calories</b>
+          {{r.get("nut")["sch__calories"][0]|round|int}}
+        </th>
+        <td>
+<!--          Calories from Fat-->
+<!--          130-->
+        </td>
+      </tr>
+      <tr class="thick-row" style="border-bottom:1px solid black">
+        <td colspan="3" class="small-info alignRight" >
+          <b>% Daily Value*</b>
+        </td>
+      </tr>
+      <tr style="border-bottom:1px solid black">
+        <th colspan="2">
+          <b>Total Fat</b>
+          {{r.get("nut")["sch__fatContent"][0]|round|int}}g
+        </th>
+        <td class="alignRight">
+          <b>{{r.get("nut")["sch__fatContentDV"][0]|round|int}}%</b>
+        </td>
+      </tr>
+      <tr style="border-bottom:1px solid black">
+        <td class="blank-cell">
+        </td>
+        <td>
+          Saturated Fat
+          {{r.get("nut")["sch__saturatedFatContent"][0]|round|int}}g
+        </td>
+        <td class="alignRight">
+          <b>{{r.get("nut")["sch__saturatedFatContentDV"][0]|round|int}}%</b>
+        </td>
+      </tr>
+      <tr style="border-bottom:1px solid black">
+        <td class="blank-cell">
+        </td>
+        <td>
+          Trans Fat
+          {{r.get("nut")["sch__transFatContent"][0]|round|int}}g
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr style="border-bottom:1px solid black">
+        <th colspan="2">
+          <b>Cholesterol</b>
+          {{r.get("nut")["sch__cholesterolContent"][0]|round|int}}mg
+        </th>
+        <td class="alignRight">
+          <b>{{r.get("nut")["sch__cholesterolContentDV"][0]|round|int}}%</b>
+        </td>
+      </tr>
+      <tr style="border-bottom:1px solid black">
+        <th colspan="2">
+          <b>Sodium</b>
+          {{r.get("nut")["sch__sodiumContent"][0]|round|int}}mg
+        </th>
+        <td class="alignRight">
+          <b>{{r.get("nut")["sch__sodiumContentDV"][0]|round|int}}%</b>
+        </td>
+      </tr>
+      <tr style="border-bottom:1px solid black">
+        <th colspan="2">
+          <b>Total Carbohydrate</b>
+          {{r.get("nut")["sch__carbohydrateContent"][0]|round|int}}g
+        </th>
+        <td class="alignRight">
+          <b>{{r.get("nut")["sch__carbohydrateContentDV"][0]|round|int}}%</b>
+        </td>
+      </tr>
+      <tr style="border-bottom:1px solid black">
+        <td class="blank-cell">
+        </td>
+        <td>
+          Dietary Fiber
+          {{r.get("nut")["sch__fiberContent"][0]|round|int}}g
+        </td>
+        <td class="alignRight">
+          <b>{{r.get("nut")["sch__fiberContentDV"][0]|round|int}}%</b>
+        </td>
+      </tr>
+      <tr style="border-bottom:1px solid black">
+        <td class="blank-cell">
+        </td>
+        <td>
+          Sugars
+          {{r.get("nut")["sch__sugarContent"][0]|round|int}}g
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr class="thick-end">
+        <th colspan="2">
+          <b>Protein</b>
+          {{r.get("nut")["sch__proteinContent"][0]|round|int}}g
+        </th>
+        <td class="alignRight">
+          <b>{{r.get("nut")["sch__proteinContentDV"][0]|round|int}}%</b>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="performance-facts__table">
+    <tbody>
+      <tr class="thin-end">
+        <td colspan="2">
+          Vitamin A
+          {{r.get("nut")["sch__vitaminAContentDV"][0]|round|int}}%
+        </td>
+        <td>
+          Vitamin C
+          {{r.get("nut")["sch__vitaminCContentDV"][0]|round|int}}%
+        </td>
+      </tr>
+      <tr class="thin-end">
+        <td colspan="2">
+          Calcium
+          {{r.get("nut")["sch__calciumContentDV"][0]|round|int}}%
+        </td>
+        <td>
+          Iron
+          {{r.get("nut")["sch__ironContentDV"][0]|round|int}}%
+        </td>
+      </tr>
+    <tr class="thin-end">
+        <td colspan="2">
+          Vitamin D
+          {{r.get("nut")["sch__vitaminDContentDV"][0]|round|int}}%
+        </td>
+        <td>
+          Potassium
+          {{r.get("nut")["sch__potassiumContentDV"][0]|round|int}}%
+        </td>
+      </tr>
+    <tr class="thin-end">
+        <td colspan="2">
+          Thiamin
+          {{r.get("nut")["sch__thiaminB1ContentDV"][0]|round|int}}%
+        </td>
+        <td>
+          Riboflavin
+          {{r.get("nut")["sch__riboflavinB2ContentDV"][0]|round|int}}%
+        </td>
+      </tr>
+    <tr class="thin-end">
+        <td colspan="2">
+          Niacin
+          {{r.get("nut")["sch__niacinB3ContentDV"][0]|round|int}}%
+        </td>
+        <td>
+          Vitamin B6
+          {{r.get("nut")["sch__vitaminB6ContentDV"][0]|round|int}}%
+        </td>
+      </tr>
+    <tr class="thin-end">
+        <td colspan="2">
+          Zinc
+          {{r.get("nut")["sch__zincContentDV"][0]|round|int}}%
+        </td>
+        <td>
+          Vitamin K
+          {{r.get("nut")["sch__vitaminKContentDV"][0]|round|int}}%
+        </td>
+      </tr>
+    <tr class="thin-end">
+        <td colspan="2">
+          Phosphorus
+          {{r.get("nut")["sch__phosphorusContentDV"][0]|round|int}}%
+        </td>
+        <td>
+          Folic Acid
+          {{r.get("nut")["sch__folicAcidContentDV"][0]|round|int}}%
+        </td>
+      </tr>
+    <tr class="thin-end">
+        <td colspan="2">
+          Vitamin E
+        {{r.get("nut")["sch__vitaminEContentDV"][0]|round|int}}%
+        </td>
+        <td>
+            Vitamin B12
+        {{r.get("nut")["sch__vitaminB12ContentDV"][0]|round|int}}%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:</p>
+
+<!--  <table class="performance-facts__table small-info">-->
+<!--    <thead>-->
+<!--      <tr style="border-bottom:1px solid black">-->
+<!--        <td colspan="2"></td>-->
+<!--        <th>Calories:</th>-->
+<!--        <th>2,000</th>-->
+<!--        <th>2,500</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--      <tr>-->
+<!--        <td colspan="2">Total Fat</td>-->
+<!--        <td class="alignRight">Less than</td>-->
+<!--        <td>65g</td>-->
+<!--        <td>80g</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td class="blank-cell"></td>-->
+<!--        <td>Saturated Fat</td>-->
+<!--        <td class="alignRight">Less than</td>-->
+<!--        <td>20g</td>-->
+<!--        <td>25g</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td colspan="2">Cholesterol</td>-->
+<!--        <td class="alignRight">Less than</td>-->
+<!--        <td>300mg</td>-->
+<!--        <td>300 mg</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td colspan="2">Sodium</td>-->
+<!--        <td class="alignRight">Less than</td>-->
+<!--        <td>2,400mg</td>-->
+<!--        <td>2,400mg</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td colspan="3">Total Carbohydrate</td>-->
+<!--        <td>300g</td>-->
+<!--        <td>375g</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td class="blank-cell"></td>-->
+<!--        <td colspan="2">Dietary Fiber</td>-->
+<!--        <td>25g</td>-->
+<!--        <td>30g</td>-->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+
+<!--  <p class="small-info">-->
+<!--    Calories per gram:-->
+<!--  </p>-->
+<!--  <p class="small-info text-center">-->
+<!--    Fat 9-->
+<!--    &bull;-->
+<!--    Carbohydrate 4-->
+<!--    &bull;-->
+<!--    Protein 4-->
+<!--  </p>-->
+</div>
+{% endif %}
+    {% endif %}
 
 </body>
 </html>

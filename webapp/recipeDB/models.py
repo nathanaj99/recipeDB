@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 import uuid
 
-recipe_graph = Graph("bolt://localhost:7687/neo4j", password="recipeDB")
+recipe_graph = Graph("bolt://localhost:7687/neo4j", password="Voltrox19")
 
 def get25Recipes():
     query = """
@@ -50,6 +50,28 @@ def specific_recipe_query(uri):
 
     return recipe_graph.run(query)
 
+def advanced_query(dic):
+    query = """
+    MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)-[:sch__nutrition]->(nut:sch__NutritionInformation)
+    WHERE (toLower(n.rdfs__label[0]) =~ '.*""" + dic['phrase'] + """.*')
+    AND (""" + dic['min_health'] + """ <= n.sch__healthScore[0] <= """ + dic['max_health'] + """)
+    AND (""" + dic['min_rating'] + """ <= n.sch__aggregateRating[0] <= """ + dic['max_rating'] + """)
+    AND (""" + dic['min_protein'] + """ <= nut.sch__proteinContentDV[0] <= """ + dic['max_protein'] + """)
+    AND (""" + dic['min_calories'] + """ <= nut.sch__calories[0] <= """ + dic['max_calories'] + """)
+    AND (""" + dic['min_sodium'] + """ <= nut.sch__sodiumContentDV[0] <= """ + dic['max_sodium'] + """)
+    AND (""" + dic['min_sugar'] + """ <= nut.sch__sugarContentDV[0] <= """ + dic['max_sugar'] + """)
+    AND (""" + dic['min_cholesterol'] + """ <= nut.sch__cholesterolContentDV[0] <= """ + dic['max_cholesterol'] + """)
+    AND (""" + dic['min_carbs'] + """ <= nut.sch__carbohydrateContentDV[0] <= """ + dic['max_carbs'] + """)
+    AND (""" + dic['min_fat'] + """ <= nut.sch__fatContentDV[0] <= """ + dic['max_fat'] + """)
+    AND (""" + dic['min_fiber'] + """ <= nut.sch__fiberContentDV[0] <= """ + dic['max_fiber'] + """)
+    AND (""" + dic['min_potassium'] + """ <= nut.sch__potassiumContentDV[0] <= """ + dic['max_potassium'] + """)
+    AND (""" + dic['min_calcium'] + """ <= nut.sch__calciumContentDV[0] <= """ + dic['max_calcium'] + """)
+    AND (""" + dic['min_vitamina'] + """ <= nut.sch__vitaminAContentDV[0] <= """ + dic['max_vitamina'] + """)
+    AND (""" + dic['min_vitaminc'] + """ <= nut.sch__vitaminCContentDV[0] <= """ + dic['max_vitaminc'] + """)
+    RETURN n, COLLECT(a) AS a
+    """
+
+    return recipe_graph.run(query)
 
 def recipes_by_author(author):
     query = """

@@ -3,6 +3,20 @@ import csv
 
 input_file = 'nyt'
 
+jl = open('data/raw_jl/nyt.jl', "r").read()
+data = [json.loads(str(item)) for item in jl.strip().split('\n')]
+print(len(data))
+
+jl = open('data/raw_jl/nyt_dinner.jl', "r").read()
+data = [json.loads(str(item)) for item in jl.strip().split('\n')]
+print(len(data))
+jl = open('data/raw_jl/epicurious_dessert.jl', "r").read()
+data = [json.loads(str(item)) for item in jl.strip().split('\n')]
+print(len(data))
+jl = open('data/raw_jl/epicurious_dinner.jl', "r").read()
+data = [json.loads(str(item)) for item in jl.strip().split('\n')]
+print(len(data))
+
 # file = json.loads(open('data/nyt_parser/epicurious_results.json', 'r').read())
 # print(len(file))
 # file = json.loads(open('data/nrm/epicurious_results.json', 'r').read())
@@ -220,4 +234,4 @@ def split_json(input):
     w1.close()
     w2.close()
 
-split_json('named_ingredients2')
+# split_json('named_ingredients2')

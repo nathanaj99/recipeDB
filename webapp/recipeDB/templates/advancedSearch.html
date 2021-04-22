@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"> </script>
     <style>
         .form-check-label {
 			padding-top: calc(.5rem - 1px * 2);
 			padding-bottom: calc(.5rem - 1px * 2);
 			margin-bottom: 0;
+		}
+
+		.recipe {
+		    border-radius: 25px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+
 		}
 
     </style>
@@ -30,102 +40,263 @@
         <a class="col-2 mt-4 mb-4" href="{{ url_for('backwards_ingredient') }}">Find via Ingredient</a>
     </div>
 </div>
-<!--    <form action="{{ url_for('advanced_search') }}" method="POST">-->
-<!--        <label for="search">Query:</label>-->
-<!--        <input type="text" name="phrase" id="search"><br>-->
-<!--        <label for="name">Condition:</label>-->
-<!--        <input name="name" type="text" id="name" placeholder="Enter a condition" autocomplete="off">-->
 
-<!--        <a href="#" id="btnAdd">Add</a>-->
-<!--        <br>-->
-<!--        <label for="list">Condition List:</label>-->
-<!--        <select id="list" name="list" multiple>-->
-
-<!--        </select>-->
-<!--        <a href="#" id="btnRemove">Remove Selected Condition</a>-->
-<!--    -->
-<!--        <script>-->
-<!--            const btnAdd = document.querySelector('#btnAdd');-->
-<!--            const btnRemove = document.querySelector('#btnRemove');-->
-<!--            const sb = document.querySelector('#list');-->
-<!--            const name = document.querySelector('#name');-->
-<!--    -->
-<!--            btnAdd.onclick = (e) => {-->
-<!--                e.preventDefault();-->
-<!--    -->
-<!--                // validate the option-->
-<!--                if (name.value == '') {-->
-<!--                    alert('Please enter the name.');-->
-<!--                    return;-->
-<!--                }-->
-<!--                // create a new option-->
-<!--                const option = new Option(name.value, name.value);-->
-<!--                option.selected = true;-->
-<!--                // add it to the list-->
-<!--                sb.add(option, undefined);-->
-<!--    -->
-<!--                // reset the value of the input-->
-<!--                name.value = '';-->
-<!--                name.focus();-->
-<!--            };-->
-<!--            // remove selected option-->
-<!--            btnRemove.onclick = (e) => {-->
-<!--                e.preventDefault();-->
-<!--    -->
-<!--                // save the selected option-->
-<!--                let selected = [];-->
-<!--    -->
-<!--                for (let i = 0; i < sb.options.length; i++) {-->
-<!--                    selected[i] = sb.options[i].selected;-->
-<!--                }-->
-<!--    -->
-<!--                // remove all selected option-->
-<!--                let index = sb.options.length;-->
-<!--                while (index&#45;&#45;) {-->
-<!--                    if (selected[index]) {-->
-<!--                        sb.remove(index);-->
-<!--                    }-->
-<!--                }-->
-<!--            };-->
-<!--        </script>-->
-<!--        <br>-->
-<!--        <input type="submit"></input>-->
-<!--    </form>-->
     <div class="container">
         <h2> Advanced Search </h2>
     </div>
     <div class="container">
 		<form action="{{ url_for('advanced_search') }}" method="POST">
 			<div class="form-group row">
-				<label for="search" class="col-sm-3 col-form-label text-sm-right">Query:</label>
+				<label for="search" class="col-sm-2 col-form-label text-sm-right">Query:</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control" id="search" name="phrase">
 				</div>
 			</div> <!-- .form-group -->
 			<div class="form-group row">
-				<label for="tag-id" class="col-sm-3 col-form-label text-sm-right">Tags:</label>
+				<label for="tag-id" class="col-sm-2 col-form-label text-sm-right">Tags:</label>
 				<div class="col-sm-9">
-					<select name="tag" id="tag-id" class="form-control">
-						<option value="" selected>-- All --</option>
-                        <option value="http://recipedb.com/tag130"> Dinner</option>
-
-						<!-- Genre dropdown options here -->
-<!--<?php while($row = $genre->fetch_assoc()): ?>-->
-<!--	<option value="<?php echo $row['genre_id']; ?>">-->
-<!--		<?php echo $row['genre']; ?>-->
-<!--	</option>-->
-<!--<?php endwhile; ?>-->
+					<select multiple size="5" name="tag" id="tag-id" class="form-control">
+						<option value="Dinner">Dinner</option>
+<option value="Nut Free">Nut Free</option>
+<option value="Dessert">Dessert</option>
+<option value="Peanut Free">Peanut Free</option>
+<option value="Vegetarian">Vegetarian</option>
+<option value="Kosher">Kosher</option>
+<option value="Main Course">Main Course</option>
+<option value="Pescatarian">Pescatarian</option>
+<option value="Gluten Free">Gluten Free</option>
+<option value="Bon Appétit">Bon Appétit</option>
+<option value="Cake">Cake</option>
+<option value="Summer">Summer</option>
+<option value="Quick">Quick</option>
+<option value="Dairy Free">Dairy Free</option>
+<option value="Fall">Fall</option>
+<option value="Kidney">Kidney</option>
+<option value="Winter">Winter</option>
+<option value="Gourmet">Gourmet</option>
+<option value="Lunch">Lunch</option>
+<option value="American">American</option>
+<option value="Kid-Friendly">Kid-Friendly</option>
+<option value="Small Plates">Small Plates</option>
+<option value="Egg">Egg</option>
+<option value="Healthy">Healthy</option>
+<option value="Chocolate">Chocolate</option>
+<option value="No Sugar Added">No Sugar Added</option>
+<option value="Italian">Italian</option>
+<option value="Spring">Spring</option>
+<option value="Cream">Cream</option>
+<option value="Christmas">Christmas</option>
+<option value="Fruit">Fruit</option>
+<option value="Weekday">Weekday</option>
+<option value="Vegan">Vegan</option>
+<option value="Easy">Easy</option>
+<option value="Sugar Conscious">Sugar Conscious</option>
+<option value="Thanksgiving">Thanksgiving</option>
+<option value="French">French</option>
+<option value="Chicken">Chicken</option>
+<option value="Dairy">Dairy</option>
+<option value="Tomato">Tomato</option>
+<option value="Appetizer">Appetizer</option>
+<option value="Side Dish">Side Dish</option>
+<option value="Low Fat">Low Fat</option>
+<option value="High Fiber">High Fiber</option>
+<option value="Mixer">Mixer</option>
+<option value="Ginger">Ginger</option>
+<option value="Garlic">Garlic</option>
+<option value="Lemon">Lemon</option>
+<option value="Chili">Chili</option>
+<option value="Pasta">Pasta</option>
+<option value="Asian">Asian</option>
+<option value="Nut">Nut</option>
+<option value="Brunch">Brunch</option>
+<option value="Party">Party</option>
+<option value="Almond">Almond</option>
+<option value="Onion">Onion</option>
+<option value="Cookies">Cookies</option>
+<option value="Apple">Apple</option>
+<option value="Butter">Butter</option>
+<option value="Vegetable">Vegetable</option>
+<option value="Soups And Stews">Soups And Stews</option>
+<option value="Pollock">Pollock</option>
+<option value="Cheese">Cheese</option>
+<option value="Side">Side</option>
+<option value="Seafood">Seafood</option>
+<option value="Low Cholesterol">Low Cholesterol</option>
+<option value="Food Processor">Food Processor</option>
+<option value="Sauté">Sauté</option>
+<option value="Fish">Fish</option>
+<option value="Pastas">Pastas</option>
+<option value="Orange">Orange</option>
+<option value="Toast">Toast</option>
+<option value="Beef">Beef</option>
+<option value="Backyard BBQ">Backyard BBQ</option>
+<option value="Pork">Pork</option>
+<option value="Potato">Potato</option>
+<option value="Valentine’s Day">Valentine’s Day</option>
+<option value="Mushroom">Mushroom</option>
+<option value="One Pot">One Pot</option>
+<option value="Berry">Berry</option>
+<option value="Barbecue">Barbecue</option>
+<option value="Cinnamon">Cinnamon</option>
+<option value="Low Sodium">Low Sodium</option>
+<option value="Freeze/Chill">Freeze/Chill</option>
+<option value="Poultry">Poultry</option>
+<option value="Breakfast">Breakfast</option>
+<option value="Strawberry">Strawberry</option>
+<option value="Spice">Spice</option>
+<option value="Walnut">Walnut</option>
+<option value="Fourth Of July">Fourth Of July</option>
+<option value="Project">Project</option>
+<option value="Pecan">Pecan</option>
+<option value="Paleo">Paleo</option>
+<option value="Citrus">Citrus</option>
+<option value="Vanilla">Vanilla</option>
+<option value="Birthday">Birthday</option>
+<option value="Cream Cheese">Cream Cheese</option>
+<option value="Meat">Meat</option>
+<option value="Halal">Halal</option>
+<option value="Shrimp">Shrimp</option>
+<option value="Coconut">Coconut</option>
+<option value="Raspberry">Raspberry</option>
+<option value="Grill">Grill</option>
+<option value="Honey">Honey</option>
+<option value="Herb">Herb</option>
+<option value="Father’s Day">Father’s Day</option>
+<option value="Mexican">Mexican</option>
+<option value="Soup/Stew">Soup/Stew</option>
+<option value="Rice">Rice</option>
+<option value="Carrot">Carrot</option>
+<option value="Lamb">Lamb</option>
+<option value="Family Reunion">Family Reunion</option>
+<option value="Parmesan">Parmesan</option>
+<option value="Heavy Cream">Heavy Cream</option>
+<option value="Peach">Peach</option>
+<option value="Vegetables">Vegetables</option>
+<option value="Pear">Pear</option>
+<option value="Southern">Southern</option>
+<option value="Easter">Easter</option>
+<option value="Sugar">Sugar</option>
+<option value="Mediterranean">Mediterranean</option>
+<option value="Mother’s Day">Mother’s Day</option>
+<option value="Yogurt">Yogurt</option>
+<option value="Flour">Flour</option>
+<option value="Ice Cream">Ice Cream</option>
+<option value="Steak">Steak</option>
+<option value="Picnic">Picnic</option>
+<option value="Parsley">Parsley</option>
+<option value="Mint">Mint</option>
+<option value="Cilantro">Cilantro</option>
+<option value="Basil">Basil</option>
+<option value="Lime">Lime</option>
+<option value="Coffee">Coffee</option>
+<option value="Salads And Dressings">Salads And Dressings</option>
+<option value="Snack">Snack</option>
+<option value="Cherry">Cherry</option>
+<option value="Bacon">Bacon</option>
+<option value="Spinach">Spinach</option>
+<option value="Sour Cream">Sour Cream</option>
+<option value="Latin American">Latin American</option>
+<option value="HarperCollins">HarperCollins</option>
+<option value="New Year’s Day">New Year’s Day</option>
+<option value="Salmon">Salmon</option>
+<option value="Shower">Shower</option>
+<option value="Chinese">Chinese</option>
+<option value="Raisin">Raisin</option>
+<option value="Roasts">Roasts</option>
+<option value="Salad">Salad</option>
+<option value="Hazelnut">Hazelnut</option>
+<option value="Bean">Bean</option>
 
 					</select>
+
 				</div>
 			</div>
             <div class="form-group row">
-                <label for="health-score" class="col-sm-3 col-form-label text-sm-right">Health Score:</label>
+                <label for="rating" class="col-sm-2 col-form-label text-sm-right">Rating:</label>
                 <div class="col-sm-9">
-
-                    <b>0</b> <input id="health-score" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10" data-slider-step="0.1" data-slider-value="[5,8]"/> <b>10</b>
+                    <b>0&nbsp&nbsp</b> <input id="rating" name="rating-val" type="text" class="span2" value="" data-slider-min="0" data-slider-max="5" data-slider-step="0.1" data-slider-value="[0,5]"/> <b>&nbsp&nbsp5</b>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="health-score" class="col-sm-2 col-form-label text-sm-right">Health Score:</label>
+                <div class="col-sm-9">
+                    <b>0&nbsp&nbsp</b> <input id="health-score" name="health" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10" data-slider-step="0.1" data-slider-value="[0,10]"/> <b>&nbsp&nbsp10</b>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="calorie" class="col-sm-2 col-form-label text-sm-right">Calories:</label>
+                <div class="col-sm-4">
+                    <b>0&nbsp&nbsp</b> <input id="calorie" name="calorie-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000" data-slider-step="50" data-slider-value="[0,50000]"/> <b> &nbsp&nbsp 50000</b>
+                </div>
+
+                <label for="protein" class="col-sm-2 col-form-label text-sm-right">Protein (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0 &nbsp&nbsp</b> <input id="protein" name="protein-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="5" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="sodium" class="col-sm-2 col-form-label text-sm-right">Sodium (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0&nbsp&nbsp</b> <input id="sodium" name="sodium-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="500" data-slider-step="5" data-slider-value="[0,500]"/> <b> &nbsp&nbsp 500</b>
+                </div>
+
+                <label for="sugar" class="col-sm-2 col-form-label text-sm-right">Sugar (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0 &nbsp&nbsp</b> <input id="sugar" name="sugar-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="5" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="cholesterol" class="col-sm-2 col-form-label text-sm-right">Cholesterol (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0&nbsp&nbsp</b> <input id="cholesterol" name="cholesterol-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="2" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+
+                <label for="carbs" class="col-sm-2 col-form-label text-sm-right">Carbohydrates (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0 &nbsp&nbsp</b> <input id="carbs" name="carbs-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="5" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fat" class="col-sm-2 col-form-label text-sm-right">Fat (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0&nbsp&nbsp</b> <input id="fat" name="fat-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="2" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+
+                <label for="fiber" class="col-sm-2 col-form-label text-sm-right">Fiber (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0 &nbsp&nbsp</b> <input id="fiber" name="fiber-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="5" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="potassium" class="col-sm-2 col-form-label text-sm-right">Potassium (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0&nbsp&nbsp</b> <input id="potassium" name="potassium-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="2" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+
+                <label for="calcium" class="col-sm-2 col-form-label text-sm-right">Calcium (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0 &nbsp&nbsp</b> <input id="calcium" name="calcium-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="5" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="vitamina" class="col-sm-2 col-form-label text-sm-right">Vitamin A (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0&nbsp&nbsp</b> <input id="vitamina" name="vitamina-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="2" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+
+                <label for="vitaminc" class="col-sm-2 col-form-label text-sm-right">Vitamin C (DV%):</label>
+                <div class="col-sm-4">
+                    <b>0 &nbsp&nbsp</b> <input id="vitaminc" name="vitaminc-amt" type="text" class="span2" value="" data-slider-min="0" data-slider-max="200" data-slider-step="5" data-slider-value="[0,200]"/> <b> &nbsp&nbsp 200</b>
+                </div>
+            </div>
+
 
             <div class="form-group row">
 				<div class="col-sm-3"></div>
@@ -135,65 +306,48 @@
 				</div>
 			</div>
         </form>
+    </div>
 
-
-
+    <div class="container-fluid d-flex">
+        <div class="row flex-fill list-recipes">
     {% if success=="success" %}
         {% for r in result %}
-            <h2>Recipe Name:{{ r.get("n")["rdfs__label"][0] }}</h2>
-            <h3>Recipe URL:{{ r.get("n")["uri"] }}</h3>
-            <h3>Ingredients:</h3>
-            <ul>
-                {% for i in r.get("n")["sch__recipeIngredient"] %}
-                    <li>{{ i }}</li>
-                {% endfor %}
-            </ul>
-            <h3>Instructions:</h3>
-            <ol>
-                {% for i in r.get("ins")["sch__itemListElement"] %}
-                    <li>{{ i }}</li>
-                {% endfor %}
-            </ol>
-            <h3>Rating:{{ r.get("n")["sch__aggregateRating"][0] }}/5</h3>
-            <h3>Health Score:{{ r.get("n")["sch__healthScore"][0] }}/10</h3>
+                <div class="col col-6 col-md-4 col-lg-4 recipe">
+                    <a href="{{ url_for('specific_recipe', recipe_id=r.get('n')['rdfs__label'][0])}}"><h4>{{ r.get("n")["rdfs__label"][0] }}</h4></a>
+                    <span>By </span>
+                    {% set authors = [] %}
+                        {% for i in r.get("a"): %}
+                            {{ authors.append(i["rdfs__label"][0])|default("", True) }}
+                        {% endfor %}
+                    <span> {{ authors|join(', ') }}</span>
+                    <div>
+                    Rating: <b> {{ r.get("n")["sch__aggregateRating"][0] }} </b> /5
+                    </div>
+                    <div>
+                    <span>Health Score: <b> {{ r.get("n")["sch__healthScore"][0] }} </b> /10</span>
+                    </div>
+                </div>
         {% endfor %}
     {% endif %}
+        </div>
+    </div>
 </body>
-<!-- <script>
-document.getElementById('generate').onclick = function() {
- 
- var values = ["sch__calories","sch__fatContent","sch__carbohydrateContent","sch__sugarContent","sch__proteinContent","sch__sodiumContent","sch__fiberContent","sch__saturatedFatContent","sch__transFatContent","sch__monounsaturatedFatContent","sch__polyunsaturatedFatContent","sch__cholesterolContent","sch__calciumContent","sch__magnesiumContent","sch__potassiumContent","sch__ironContent","sch__zincContent","sch__phosphorusContent","sch__vitaminAContent","sch__vitaminCContent","sch__thiaminB1Content","sch__riboflavinB2Content","sch__niacinB3Content","sch__vitaminB6Content","sch__folicAcidContent","sch__vitaminB12Content","sch__vitaminDContent","sch__vitaminEContent","sch__vitaminKContent"];
 
- var select = document.createElement("select");
- select.name = "pets";
- select.id = "pets"
-
- for (const val of values)
- {
-     var option = document.createElement("option");
-     option.value = val;
-     if (val.includes("Content")) {
-        option.text = val.slice(5,-7);
-        }
-        else {
-            option.text = val.slice(5);
-        }
-            
-     select.appendChild(option);
- }
-
- var label = document.createElement("label");
- label.innerHTML = "Choose your pets: "
- label.htmlFor = "pets";
-
- document.getElementById("container").appendChild(label).appendChild(select);
- var select2 = document.createElement("select");
- select2.name = "quant";
- select2.id = "quant";
- 
-}
-</script> -->
 </html>
 <script>
     $("#health-score").slider({});
+    $("#rating").slider({});
+    $("#calorie").slider({});
+    $("#protein").slider({});
+    $("#carbs").slider({});
+    $("#fat").slider({});
+    $("#potassium").slider({});
+    $("#calcium").slider({});
+    $("#fiber").slider({});
+    $("#vitamina").slider({});
+    $("#vitaminc").slider({});
+    $("#cholesterol").slider({});
+    $("#sodium").slider({});
+    $("#sugar").slider({});
+
 </script>
