@@ -71,7 +71,11 @@
                         {% for i in r.get("a"): %}
                             {{ authors.append(i["rdfs__label"][0])|default("", True) }}
                         {% endfor %}
-                    <span> {{ authors|join(', ') }}</span>
+                    <span>
+                        {% for i in authors: %}
+                            <a href="{{ url_for('author_recipes', author=i) }}">{{ i }}</a>,
+                        {% endfor %}
+                    </span>
                     <div>
                     Rating: <b> {{ r.get("n")["sch__aggregateRating"][0] }} </b> /5
                     </div>

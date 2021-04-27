@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 import uuid
 
-recipe_graph = Graph("bolt://localhost:7687/neo4j", password="Voltrox19")
+recipe_graph = Graph("bolt://localhost:11005/neo4j", password="recipeDB")
 
 def get25Recipes():
     query = """
@@ -75,8 +75,17 @@ def advanced_query(dic):
 
 def recipes_by_author(author):
     query = """
-    MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)-[:sch__nutrition]->(nut:sch__NutritionInformation) 
-    WHERE (toLower(a.rdfs__label[0]) =~ '.*""" + author.lower().strip() + """.*')
+    MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)-[:sch__nutrition]->(nut:sch__NutritionInformation)
+    WHERE toLower(a.rdfs__label[0]) =~ '.*""" + author.lower().strip() + """.*'
+    RETURN n, COLLECT(a) AS a
+    """
+
+    return recipe_graph.run(query)
+
+def recipes_by_tag(tag):
+    query = """
+    MATCH (t:ns0__RecipeTag)<-[:sch__tags]-(n:sch__Recipe)-[:sch__author]->(a:ns0__Author)
+    WHERE toLower(t.rdfs__label[0]) =~ '.*""" + tag.lower().strip() + """.*'
     RETURN n, COLLECT(a) AS a
     """
 

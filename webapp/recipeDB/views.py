@@ -1,5 +1,5 @@
 from flask import Flask, request, session, redirect, url_for, render_template, flash
-from .models import get25Recipes, search_recipes2, recipes_by_author, specific_recipe_query, advanced_query, recipe_backward_search
+from .models import get25Recipes, search_recipes2, recipes_by_author, specific_recipe_query, advanced_query, recipe_backward_search, recipes_by_tag
 
 app = Flask(__name__)
 
@@ -95,5 +95,16 @@ def author_recipes(author):
     return render_template(
         'authorRecipes.html',
         result = result,
-        success='success'
+        success='success',
+        author = author
+    )
+
+@app.route('/tag_recipes/<tag>', methods=['GET','POST'])
+def tag_recipes(tag):
+    result = recipes_by_tag(tag)
+    return render_template(
+        'tagRecipes.html',
+        result = result,
+        success='success',
+        tag = tag
     )
