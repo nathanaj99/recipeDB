@@ -75,7 +75,9 @@ def advanced_query(dic):
 
 def recipes_by_author(author):
     query = """
-    MATCH (n:sch__Recipe)-[:sch__author]->(a:ns0__Author),(n)-[:sch__recipeInstructions]->(ins:sch__ItemList), (n)-[:sch__tags]->(t:ns0__RecipeTag),(n)-[:sch__author]->(a:ns0__Author) WHERE a.rdfs__label[0]=\""""+author+"""\" RETURN n,ins,collect(t.rdfs__label[0]) as tags,collect(distinct a.rdfs__label[0]) as authors LIMIT 25
+    MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)-[:sch__nutrition]->(nut:sch__NutritionInformation) 
+    WHERE (toLower(a.rdfs__label[0]) =~ '.*""" + author.lower().strip() + """.*')
+    RETURN n, COLLECT(a) AS a
     """
 
     return recipe_graph.run(query)
