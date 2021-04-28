@@ -1,5 +1,6 @@
 from flask import Flask, request, session, redirect, url_for, render_template, flash
-from .models import get25Recipes, search_recipes2, recipes_by_author, specific_recipe_query, advanced_query, recipe_backward_search, recipes_by_tag
+from .models import get25Recipes, search_recipes2, recipes_by_author, specific_recipe_query, advanced_query, \
+    recipe_backward_search, recipes_by_tag, category_query
 
 app = Flask(__name__)
 
@@ -101,10 +102,20 @@ def author_recipes(author):
 
 @app.route('/tag_recipes/<tag>', methods=['GET','POST'])
 def tag_recipes(tag):
-    result = recipes_by_tag(tag)
+    result = category_query(tag)
     return render_template(
         'tagRecipes.html',
         result = result,
         success='success',
         tag = tag
+    )
+
+@app.route('/category_recipes/<category>', methods=['GET','POST'])
+def category_recipes(category):
+    result = category_query(category)
+    return render_template(
+        'category.html',
+        result = result,
+        success='success',
+        category = category
     )

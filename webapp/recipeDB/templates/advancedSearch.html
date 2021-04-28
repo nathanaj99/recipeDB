@@ -321,7 +321,10 @@
                         {% endfor %}
                         <span>
                             {% for i in authors: %}
-                                <a href="{{ url_for('author_recipes', author=i) }}">{{ i }}</a>,
+                                <a href="{{ url_for('author_recipes', author=i) }}">{{ i }}</a>
+                                {% if not loop.last: %}
+                                    ,
+                                {% endif %}
                             {% endfor %}
                         </span>
                     <div>

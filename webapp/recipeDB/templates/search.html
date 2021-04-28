@@ -67,13 +67,17 @@
                     <a href="{{ url_for('specific_recipe', recipe_id=r.get('n')['rdfs__label'][0])}}"><h4>{{ r.get("n")["rdfs__label"][0] }}</h4></a>
 <!--                    <p>{{ r.get("n")["uri"] }}</p>-->
                     <span>By </span>
+
                     {% set authors = [] %}
                         {% for i in r.get("a"): %}
                             {{ authors.append(i["rdfs__label"][0])|default("", True) }}
                         {% endfor %}
                     <span>
                         {% for i in authors: %}
-                            <a href="{{ url_for('author_recipes', author=i) }}">{{ i }}</a>,
+                        <a href="{{ url_for('author_recipes', author=i) }}">{{ i }}</a>
+                            {% if not loop.last: %}
+                                ,
+                            {% endif %}
                         {% endfor %}
                     </span>
                     <div>

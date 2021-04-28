@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 import uuid
 
-recipe_graph = Graph("bolt://localhost:11005/neo4j", password="recipeDB")
+recipe_graph = Graph("bolt://localhost:7687/neo4j", password="Voltrox19")
 
 def get25Recipes():
     query = """
@@ -90,3 +90,54 @@ def recipes_by_tag(tag):
     """
 
     return recipe_graph.run(query)
+
+def category_query(category):
+    query = ""
+    if category == 'Healthy':
+        query = """
+        MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)
+        WHERE (7.5 <= n.sch__healthScore[0] <= 10) RETURN n, COLLECT(a) AS a
+        """
+
+    elif category == 'Cheat Day':
+        query = """
+        MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)
+        WHERE (0 <= n.sch__healthScore[0] <= 3.5) RETURN n, COLLECT(a) AS a
+        """
+
+    elif category == 'Dairy Free':
+        query = """
+        MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)-[:sch__tags]->(t:ns0__RecipeTag)
+        WHERE (t.uri IN ['http://recipedb.com/tag100', 'http://recipedb.com/tag811', 'http://recipedb.com/tag1239'])
+        RETURN n, COLLECT(a) AS a"""
+
+    elif category == 'Tropical':
+        tags = [524, 413, 620, 733, 111, 298, 372, 646, 49, 371, 389, 998, 213, 536, 472, 937, 900]
+        tags = ['http://recipedb.com/tag' + str(i) for i in tags]
+        tags = '[\'' + '\', \''.join(tags) + '\']'
+        query = """
+        MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)-[:sch__tags]->(t:ns0__RecipeTag)
+        WHERE (t.uri IN """ + tags + """) RETURN n, COLLECT(a) AS a
+        """
+
+    elif category == 'Red Foods':
+        tags = [135, 1500, 2045, 459, 1144, 2363, 193, 208, 1979]
+        tags = ['http://recipedb.com/tag' + str(i) for i in tags]
+        tags = '[\'' + '\', \''.join(tags) + '\']'
+        query = """
+        MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)-[:sch__tags]->(t:ns0__RecipeTag)
+        WHERE (t.uri IN """ + tags + """) RETURN n, COLLECT(a) AS a
+        """
+
+    elif category == 'Cheesey':
+        tags = [701, 805, 2302, 959, 190, 970, 1403, 456, 1594, 1790, 613, 1367, 1118, 2453, 1233, 1497, 1641,
+                1624, 1483, 992, 1782, 1677, 19, 556, 1370]
+        tags = ['http://recipedb.com/tag' + str(i) for i in tags]
+        tags = '[\'' + '\', \''.join(tags) + '\']'
+        query = """
+                MATCH (a:ns0__Author)<-[:sch__author]-(n:sch__Recipe)-[:sch__tags]->(t:ns0__RecipeTag)
+                WHERE (t.uri IN """ + tags + """) RETURN n, COLLECT(a) AS a
+                """
+
+    return recipe_graph.run(query)
+
